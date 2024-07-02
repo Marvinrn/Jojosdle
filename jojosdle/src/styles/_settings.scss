@@ -1,0 +1,15 @@
+$font-1: "Roboto", sans-serif;
+// $font-1: 'Noto Sans TC';
+// $font-1: sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: $font-1;
+  min-height: 100vh;
+}
