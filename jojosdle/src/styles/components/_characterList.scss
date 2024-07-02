@@ -1,0 +1,51 @@
+.characterList {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__titleList {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  &__propertiesTitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-bottom: 2px solid white;
+    width: 100px;
+    margin: 0px 25px;
+  }
+
+  &__list {
+    margin: 25px 0px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__properties {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 0.7em;
+    width: 100px;
+    height: 100px;
+    margin: 25px;
+    background-color: red; /* Default background color */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+
+    &.green {
+      background-color: green; /* Green background color */
+    }
+
+    &.orange {
+      background-color: orange; /* Orange background color */
+    }
+  }
+}

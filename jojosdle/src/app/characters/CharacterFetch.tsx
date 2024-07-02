@@ -1,21 +1,23 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import CharacterList from "./charactersList";
-import { CharacterPorperties } from "./characterProperties";
+import CharacterList from "./charactersList"; // Ensure correct import casing
+import { CharacterProperties } from "./CharacterProperties";
 
 const CharacterFetch: React.FC = () => {
-  const [characters, setCharacters] = useState<CharacterPorperties[]>([]);
+  const [characters, setCharacters] = useState<CharacterProperties[]>([]);
   const [displayedCharacters, setDisplayedCharacters] = useState<
-    CharacterPorperties[]
+    CharacterProperties[]
   >([]);
   const [filteredCharacters, setFilteredCharacters] = useState<
-    CharacterPorperties[]
+    CharacterProperties[]
   >([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [randomCharacter, setRandomCharacter] =
-    useState<CharacterPorperties | null>(null);
+    useState<CharacterProperties | null>(null);
+  const [searchDisabled, setSearchDisabled] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -44,6 +46,16 @@ const CharacterFetch: React.FC = () => {
     fetchCharacters();
   }, []);
 
+  useEffect(() => {
+    if (randomCharacter) {
+      // Check if the selected character matches the random character
+      const isMatch = displayedCharacters.some(
+        (c) => c.id === randomCharacter.id
+      );
+      setSearchDisabled(isMatch);
+    }
+  }, [randomCharacter, displayedCharacters]);
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
@@ -60,86 +72,79 @@ const CharacterFetch: React.FC = () => {
     }
   };
 
-  const handleSelectCharacter = (char: CharacterPorperties) => {
+  const handleSelectCharacter = (char: CharacterProperties) => {
     setFilteredCharacters([]);
     setSearchQuery("");
+    setSearchDisabled(false); // Enable search bar
+
     setDisplayedCharacters((prevCharacters) => {
       if (prevCharacters.find((c) => c.id === char.id)) {
         return prevCharacters;
       }
-      return [char, ...prevCharacters];
+      // Ensure each character in displayedCharacters has its own comparisonResults
+      const newCharacter = { ...char, comparisonResults: {} };
+      compareWithRandomCharacter(newCharacter);
+      return [newCharacter, ...prevCharacters];
     });
-    compareWithRandomCharacter(char);
   };
 
-  const compareWithRandomCharacter = (char: CharacterPorperties) => {
+  const compareWithRandomCharacter = (char: CharacterProperties) => {
     if (randomCharacter) {
-      const matches: string[] = [];
-      const partiallyMatchedProperties: string[] = [];
+      const results: {
+        [key: string]: "match" | "partial" | "no-match" | undefined;
+      } = {};
 
-      if (char.id === randomCharacter.id) matches.push("ID");
-      if (char.name === randomCharacter.name) matches.push("Name");
-      if (char.image === randomCharacter.image) matches.push("Image");
+      if (char.id === randomCharacter.id) results["image"] = "match";
+      if (char.name === randomCharacter.name) results["name"] = "match";
+      if (char.image === randomCharacter.image) results["image"] = "match";
       if (char.nationality === randomCharacter.nationality)
-        matches.push("Nationality");
-      if (char.living === randomCharacter.living) matches.push("Living");
-      if (char.isHuman === randomCharacter.isHuman) matches.push("Human");
+        results["nationality"] = "match";
+      if (char.living === randomCharacter.living) results["living"] = "match";
+      if (char.isHuman === randomCharacter.isHuman)
+        results["isHuman"] = "match";
 
-      //// special case for family partially matching propertie
+      //// special case for family partially matching property
       if (char.family === randomCharacter.family) {
-        matches.push("Family");
+        results["family"] = "match";
       } else if (char.family && randomCharacter.family) {
-        // Split the chapter strings into arrays
-        const charChapters = char.family.split(",").map((ch) => ch.trim());
-        const randomCharChapters = randomCharacter.family
+        const charFamilies = char.family.split(",").map((ch) => ch.trim());
+        const randomCharFamilies = randomCharacter.family
           .split(",")
           .map((ch) => ch.trim());
 
-        // Check for any common chapters
-        const commonChapters = charChapters.filter((family) =>
-          randomCharChapters.includes(family)
+        const commonFamilies = charFamilies.filter((family) =>
+          randomCharFamilies.includes(family)
         );
 
-        // If there are common chapters, add "Chapter" to partiallyMatchedProperties
-        if (commonChapters.length > 0) {
-          partiallyMatchedProperties.push("family");
+        if (commonFamilies.length > 0) {
+          results["family"] = "partial";
         }
       }
 
-      //// special case for chapter partially matching propertie
+      //// special case for chapter partially matching property
       if (char.chapter === randomCharacter.chapter) {
-        matches.push("Chapter");
+        results["chapter"] = "match";
       } else if (char.chapter && randomCharacter.chapter) {
-        // Split the chapter strings into arrays
         const charChapters = char.chapter.split(",").map((ch) => ch.trim());
         const randomCharChapters = randomCharacter.chapter
           .split(",")
           .map((ch) => ch.trim());
 
-        // Check for any common chapters
         const commonChapters = charChapters.filter((chapter) =>
           randomCharChapters.includes(chapter)
         );
 
-        // If there are common chapters, add "Chapter" to partiallyMatchedProperties
         if (commonChapters.length > 0) {
-          partiallyMatchedProperties.push("Chapter");
+          results["chapter"] = "partial";
         }
       }
 
-      if (matches.length > 0) {
-        console.log(`Matched properties: ${matches.join(", ")}`);
-      }
-      if (partiallyMatchedProperties.length > 0) {
-        console.log(
-          `Partially matched properties: ${partiallyMatchedProperties.join(
-            ", "
-          )}`
-        );
-      }
-      if (matches.length === 0 && partiallyMatchedProperties.length === 0) {
-        console.log("No properties matched. Keep guessing!");
-      }
+      // Set comparison results for the selected character
+      setDisplayedCharacters((prevCharacters) =>
+        prevCharacters.map((c) =>
+          c.id === char.id ? { ...c, comparisonResults: results } : c
+        )
+      );
     }
   };
 
@@ -162,6 +167,7 @@ const CharacterFetch: React.FC = () => {
           placeholder="Search character..."
           value={searchQuery}
           onChange={handleSearchChange}
+          disabled={searchDisabled}
         />
         {filteredCharacters.length > 0 && (
           <ul>

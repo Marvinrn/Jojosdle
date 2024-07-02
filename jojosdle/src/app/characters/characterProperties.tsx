@@ -1,4 +1,4 @@
-export interface CharacterPorperties {
+export interface CharacterProperties {
   id: string;
   name: string;
   image: string;
@@ -7,4 +7,7 @@ export interface CharacterPorperties {
   chapter: string;
   living: boolean;
   isHuman: boolean;
+  comparisonResults: {
+    [key: string]: string | undefined; // Index signature allowing any string key
+  };
 }
