@@ -11,5 +11,7 @@ $font-1: "Roboto", sans-serif;
 html,
 body {
   font-family: $font-1;
+  color: white;
   min-height: 100vh;
+  background-color: black;
 }

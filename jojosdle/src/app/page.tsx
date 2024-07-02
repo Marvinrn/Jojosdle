@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main>
       <div>
-        <h1>HELLO WORLD</h1>
+        <Link href="/characters">
+          <button>Go to Characters Page</button>
+        </Link>
       </div>
     </main>
   );
