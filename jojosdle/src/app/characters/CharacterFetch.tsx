@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import CharacterList from "./charactersList"; // Ensure correct import casing
+import CharacterList from "./charactersList";
 import { CharacterProperties } from "./CharacterProperties";
 
 const CharacterFetch: React.FC = () => {
@@ -35,11 +35,9 @@ const CharacterFetch: React.FC = () => {
           setRandomCharacter(data[randomIndex]);
         }
       } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("An unknown error occurred");
-        }
+        setError(
+          err instanceof Error ? err.message : "An unknown error occurred"
+        );
       }
     };
 
@@ -48,7 +46,6 @@ const CharacterFetch: React.FC = () => {
 
   useEffect(() => {
     if (randomCharacter) {
-      // Check if the selected character matches the random character
       const isMatch = displayedCharacters.some(
         (c) => c.id === randomCharacter.id
       );
@@ -75,13 +72,12 @@ const CharacterFetch: React.FC = () => {
   const handleSelectCharacter = (char: CharacterProperties) => {
     setFilteredCharacters([]);
     setSearchQuery("");
-    setSearchDisabled(false); // Enable search bar
+    setSearchDisabled(false);
 
     setDisplayedCharacters((prevCharacters) => {
       if (prevCharacters.find((c) => c.id === char.id)) {
         return prevCharacters;
       }
-      // Ensure each character in displayedCharacters has its own comparisonResults
       const newCharacter = { ...char, comparisonResults: {} };
       compareWithRandomCharacter(newCharacter);
       return [newCharacter, ...prevCharacters];
@@ -94,52 +90,54 @@ const CharacterFetch: React.FC = () => {
         [key: string]: "match" | "partial" | "no-match" | undefined;
       } = {};
 
-      if (char.id === randomCharacter.id) results["image"] = "match";
-      if (char.name === randomCharacter.name) results["name"] = "match";
-      if (char.image === randomCharacter.image) results["image"] = "match";
-      if (char.nationality === randomCharacter.nationality)
-        results["nationality"] = "match";
-      if (char.living === randomCharacter.living) results["living"] = "match";
-      if (char.isHuman === randomCharacter.isHuman)
-        results["isHuman"] = "match";
+      const propertiesToCompare = [
+        "image",
+        "name",
+        "nationality",
+        "living",
+        "isHuman",
+        "family",
+        "chapter",
+      ];
 
-      //// special case for family partially matching property
-      if (char.family === randomCharacter.family) {
-        results["family"] = "match";
-      } else if (char.family && randomCharacter.family) {
-        const charFamilies = char.family.split(",").map((ch) => ch.trim());
-        const randomCharFamilies = randomCharacter.family
-          .split(",")
-          .map((ch) => ch.trim());
+      propertiesToCompare.forEach((prop) => {
+        if (char[prop] === randomCharacter[prop]) {
+          results[prop] = "match";
+        } else if (char[prop] && randomCharacter[prop]) {
+          const charValues = char[prop]
+            .split(",")
+            .map((ch: string) => ch.trim());
+          const randomCharValues = randomCharacter[prop]
+            .split(",")
+            .map((ch: string) => ch.trim());
 
-        const commonFamilies = charFamilies.filter((family) =>
-          randomCharFamilies.includes(family)
-        );
+          const commonValues = charValues.filter((value: any) =>
+            randomCharValues.includes(value)
+          );
 
-        if (commonFamilies.length > 0) {
-          results["family"] = "partial";
+          if (prop === "family") {
+            // Check if randomCharacter's name is in char's family property and vice versa
+            const isFamilyMatch =
+              charValues.includes(randomCharacter.name) ||
+              randomCharValues.includes(char.name);
+
+            if (isFamilyMatch) {
+              results[prop] = "match";
+            } else if (commonValues.length > 0) {
+              results[prop] = "partial";
+            } else {
+              results[prop] = "no-match";
+            }
+          } else if (commonValues.length > 0) {
+            results[prop] = "partial";
+          } else {
+            results[prop] = "no-match";
+          }
+        } else {
+          results[prop] = "no-match";
         }
-      }
+      });
 
-      //// special case for chapter partially matching property
-      if (char.chapter === randomCharacter.chapter) {
-        results["chapter"] = "match";
-      } else if (char.chapter && randomCharacter.chapter) {
-        const charChapters = char.chapter.split(",").map((ch) => ch.trim());
-        const randomCharChapters = randomCharacter.chapter
-          .split(",")
-          .map((ch) => ch.trim());
-
-        const commonChapters = charChapters.filter((chapter) =>
-          randomCharChapters.includes(chapter)
-        );
-
-        if (commonChapters.length > 0) {
-          results["chapter"] = "partial";
-        }
-      }
-
-      // Set comparison results for the selected character
       setDisplayedCharacters((prevCharacters) =>
         prevCharacters.map((c) =>
           c.id === char.id ? { ...c, comparisonResults: results } : c
@@ -147,10 +145,6 @@ const CharacterFetch: React.FC = () => {
       );
     }
   };
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <div>

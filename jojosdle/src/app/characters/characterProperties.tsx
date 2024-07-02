@@ -10,4 +10,5 @@ export interface CharacterProperties {
   comparisonResults: {
     [key: string]: string | undefined; // Index signature allowing any string key
   };
+  [key: string]: any;
 }
