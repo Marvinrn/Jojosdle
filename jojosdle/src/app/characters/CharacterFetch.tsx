@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import CharacterList from "./charactersList";
+import CharacterList from "./CharactersList";
 import { CharacterProperties } from "./CharacterProperties";
+import CharacterSearchInput from "./CharacterSearchInput";
+import FilteredCharacterList from "./FilteredCharacterList";
+import RandomCharacterHint from "./RandomCharacterHint";
 
 const CharacterFetch: React.FC = () => {
   const [characters, setCharacters] = useState<CharacterProperties[]>([]);
@@ -116,7 +118,6 @@ const CharacterFetch: React.FC = () => {
           );
 
           if (prop === "family") {
-            // Check if randomCharacter's name is in char's family property and vice versa
             const isFamilyMatch =
               charValues.includes(randomCharacter.name) ||
               randomCharValues.includes(char.name);
@@ -150,39 +151,17 @@ const CharacterFetch: React.FC = () => {
     <div>
       <h1>Guess the Character</h1>
       {randomCharacter && (
-        <div>
-          <p>Try to guess which character was randomly picked!</p>
-          <p>Hint: {randomCharacter.name}</p>
-        </div>
+        <RandomCharacterHint randomCharacter={randomCharacter} />
       )}
-      <div>
-        <input
-          type="text"
-          placeholder="Search character..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-          disabled={searchDisabled}
-        />
-        {filteredCharacters.length > 0 && (
-          <ul>
-            {filteredCharacters.map((char) => (
-              <li key={char.id} onClick={() => handleSelectCharacter(char)}>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <div>
-                    <Image
-                      src={`https://jojos-bizarre-api.netlify.app/assets/${char.image}`}
-                      alt={char.name}
-                      width={50}
-                      height={50}
-                    />
-                  </div>
-                  <div style={{ marginLeft: "10px" }}>{char.name}</div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      <CharacterSearchInput
+        searchQuery={searchQuery}
+        handleSearchChange={handleSearchChange}
+        searchDisabled={searchDisabled}
+      />
+      <FilteredCharacterList
+        filteredCharacters={filteredCharacters}
+        handleSelectCharacter={handleSelectCharacter}
+      />
       <CharacterList
         displayedCharacters={displayedCharacters}
         handleSelectCharacter={handleSelectCharacter}
