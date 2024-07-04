@@ -67,7 +67,7 @@ const CharacterList: React.FC<CharacterListProps> = ({
         <p className="characterList__propertiesTitle">Is Human</p>
       </div>
       {displayedCharacters.length > 0 && (
-        <div>
+        <div className="characterList__listContainer">
           {displayedCharacters.map((char) => (
             <div key={char.id} className="characterList__list">
               <div
