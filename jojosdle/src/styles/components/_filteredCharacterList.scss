@@ -1,0 +1,24 @@
+.filteredList {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  max-height: 250px;
+  overflow-y: auto;
+
+  &__list {
+    width: 25%;
+    font-size: 1.2em;
+    list-style-type: none;
+  }
+
+  &__characterContainer {
+    border: 1px solid white;
+    padding: 5px;
+    background-color: purple;
+  }
+
+  &__character {
+    display: flex;
+    align-items: center;
+  }
+}

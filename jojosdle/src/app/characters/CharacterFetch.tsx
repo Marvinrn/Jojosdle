@@ -149,10 +149,10 @@ const CharacterFetch: React.FC = () => {
 
   return (
     <div>
-      <h1>Guess the Character</h1>
-      {randomCharacter && (
+      <h1 className="characterFetch__title">Guess the Character</h1>
+      {/* {randomCharacter && (
         <RandomCharacterHint randomCharacter={randomCharacter} />
-      )}
+      )} */}
       <CharacterSearchInput
         searchQuery={searchQuery}
         handleSearchChange={handleSearchChange}

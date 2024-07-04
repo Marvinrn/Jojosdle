@@ -6,6 +6,7 @@
   justify-content: center;
 
   &__titleList {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -38,7 +39,8 @@
     height: 100px;
     margin: 25px;
     background-color: red; /* Default background color */
-    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* Initially hidden */
 
     &.green {
       background-color: green; /* Green background color */
@@ -46,6 +48,14 @@
 
     &.orange {
       background-color: orange; /* Orange background color */
+    }
+
+    &.visible {
+      opacity: 1; /* Visible with transition */
+    }
+
+    &.hidden {
+      opacity: 0; /* Hidden */
     }
   }
 }

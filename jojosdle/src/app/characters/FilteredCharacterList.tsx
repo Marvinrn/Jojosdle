@@ -12,12 +12,16 @@ const FilteredCharacterList: React.FC<FilteredCharacterListProps> = ({
   handleSelectCharacter,
 }) => {
   return (
-    <div>
+    <div className="filteredList">
       {filteredCharacters.length > 0 && (
-        <ul>
+        <ul className="filteredList__list">
           {filteredCharacters.map((char) => (
-            <li key={char.id} onClick={() => handleSelectCharacter(char)}>
-              <div style={{ display: "flex", alignItems: "center" }}>
+            <li
+              className="filteredList__characterContainer"
+              key={char.id}
+              onClick={() => handleSelectCharacter(char)}
+            >
+              <div className="filteredList__character">
                 <div>
                   <Image
                     src={`https://jojos-bizarre-api.netlify.app/assets/${char.image}`}
@@ -26,7 +30,7 @@ const FilteredCharacterList: React.FC<FilteredCharacterListProps> = ({
                     height={50}
                   />
                 </div>
-                <div style={{ marginLeft: "10px" }}>{char.name}</div>
+                <div>{char.name}</div>
               </div>
             </li>
           ))}

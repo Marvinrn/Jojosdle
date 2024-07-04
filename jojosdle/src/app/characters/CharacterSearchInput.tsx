@@ -12,8 +12,9 @@ const CharacterSearchInput: React.FC<CharacterSearchInputProps> = ({
   searchDisabled,
 }) => {
   return (
-    <div>
+    <div className="searchBarContainer">
       <input
+        className="searchBar"
         type="text"
         placeholder="Search character..."
         value={searchQuery}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { CharacterProperties } from "./CharacterProperties";
 
@@ -29,6 +29,33 @@ const CharacterList: React.FC<CharacterListProps> = ({
     }
   };
 
+  const [delayedCharacters, setDelayedCharacters] = useState<
+    { id: string; property: string }[]
+  >([]);
+
+  useEffect(() => {
+    if (displayedCharacters.length > 0) {
+      displayedCharacters.forEach((char, charIndex) => {
+        const properties = [
+          "image",
+          "nationality",
+          "family",
+          "chapter",
+          "living",
+          "isHuman",
+        ];
+        properties.forEach((property, propIndex) => {
+          setTimeout(() => {
+            setDelayedCharacters((prev) => [
+              ...prev,
+              { id: char.id, property },
+            ]);
+          }, (charIndex * properties.length + propIndex) * 500); // 0.5 second delay for each property
+        });
+      });
+    }
+  }, [displayedCharacters]);
+
   return (
     <div className="characterList">
       <div className="characterList__titleList">
@@ -43,21 +70,37 @@ const CharacterList: React.FC<CharacterListProps> = ({
         <div>
           {displayedCharacters.map((char) => (
             <div key={char.id} className="characterList__list">
-              <Image
-                src={`https://jojos-bizarre-api.netlify.app/assets/${char.image}`}
-                alt={char.name}
+              <div
                 className={`characterList__properties ${getClassForProperty(
                   char,
                   "image"
-                )}`}
-                width={100}
-                height={100}
-              />
+                )} ${
+                  delayedCharacters.find(
+                    (item) => item.id === char.id && item.property === "image"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
+              >
+                <Image
+                  src={`https://jojos-bizarre-api.netlify.app/assets/${char.image}`}
+                  alt={char.name}
+                  width={100}
+                  height={100}
+                />
+              </div>
               <p
                 className={`characterList__properties ${getClassForProperty(
                   char,
                   "nationality"
-                )}`}
+                )} ${
+                  delayedCharacters.find(
+                    (item) =>
+                      item.id === char.id && item.property === "nationality"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
               >
                 {char.nationality}
               </p>
@@ -65,7 +108,13 @@ const CharacterList: React.FC<CharacterListProps> = ({
                 className={`characterList__properties ${getClassForProperty(
                   char,
                   "family"
-                )}`}
+                )} ${
+                  delayedCharacters.find(
+                    (item) => item.id === char.id && item.property === "family"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
               >
                 {char.family}
               </p>
@@ -73,7 +122,13 @@ const CharacterList: React.FC<CharacterListProps> = ({
                 className={`characterList__properties ${getClassForProperty(
                   char,
                   "chapter"
-                )}`}
+                )} ${
+                  delayedCharacters.find(
+                    (item) => item.id === char.id && item.property === "chapter"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
               >
                 {char.chapter}
               </p>
@@ -81,7 +136,13 @@ const CharacterList: React.FC<CharacterListProps> = ({
                 className={`characterList__properties ${getClassForProperty(
                   char,
                   "living"
-                )}`}
+                )} ${
+                  delayedCharacters.find(
+                    (item) => item.id === char.id && item.property === "living"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
               >
                 {char.living ? "Yes" : "No"}
               </p>
@@ -89,7 +150,13 @@ const CharacterList: React.FC<CharacterListProps> = ({
                 className={`characterList__properties ${getClassForProperty(
                   char,
                   "isHuman"
-                )}`}
+                )} ${
+                  delayedCharacters.find(
+                    (item) => item.id === char.id && item.property === "isHuman"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
               >
                 {char.isHuman ? "Yes" : "No"}
               </p>
