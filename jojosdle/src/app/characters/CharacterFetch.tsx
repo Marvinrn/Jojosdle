@@ -148,7 +148,7 @@ const CharacterFetch: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="characterFetchContainer">
       <h1 className="characterFetch__title">Guess the Character</h1>
       {/* {randomCharacter && (
         <RandomCharacterHint randomCharacter={randomCharacter} />
