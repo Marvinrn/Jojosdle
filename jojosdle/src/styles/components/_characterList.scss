@@ -43,16 +43,21 @@
     width: 100px;
     height: 100px;
     margin: 5px;
-    background-color: red; /* Default background color */
+    background-color: rgb(219, 38, 38);
+    border-radius: 25px;
+    border: 2px solid red; /* Default background color */
     transition: opacity 0.5s ease-in-out;
     opacity: 0; /* Initially hidden */
 
     &.green {
-      background-color: green; /* Green background color */
+      background-color: rgb(96, 184, 96); /* Green background color */
+      border: 2px solid green; /* Default background color */
+      border-radius: 25px;
     }
 
     &.orange {
-      background-color: orange; /* Orange background color */
+      background-color: rgb(228, 156, 23); /* Orange background color */
+      border: 2px solid orange; /* Default background color */
     }
 
     &.visible {

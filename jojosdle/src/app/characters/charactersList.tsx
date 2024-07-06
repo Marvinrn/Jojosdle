@@ -85,8 +85,8 @@ const CharacterList: React.FC<CharacterListProps> = ({
                 <Image
                   src={`https://jojos-bizarre-api.netlify.app/assets/${char.image}`}
                   alt={char.name}
-                  width={100}
-                  height={100}
+                  width={75}
+                  height={75}
                 />
               </div>
               <p
