@@ -37,8 +37,8 @@ export const CharactersData = [
   },
   {
     id: "4",
-    name: 4,
-    animeDebut: "Episode 1",
+    name: "Will Anthonio Zeppeli",
+    animeDebut: 4,
     image: "https://jojos-bizarre-api.netlify.app/assets/zeppeli.webp",
     nationality: "Italian",
     chapter: "Phantom Blood",
@@ -49,8 +49,8 @@ export const CharactersData = [
   },
   {
     id: "5",
-    name: 2,
-    animeDebut: "Episode 1",
+    name: "Robert E. O. Speedwagon",
+    animeDebut: 2,
     image: "https://jojos-bizarre-api.netlify.app/assets/speedwagon.png",
     nationality: "English",
     chapter: "Phantom Blood",
