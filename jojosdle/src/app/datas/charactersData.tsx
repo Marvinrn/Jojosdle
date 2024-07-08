@@ -2,6 +2,7 @@ export const CharactersData = [
   {
     id: "1",
     name: "Jonathan Joestar",
+    animeDebut: 1,
     image: "https://jojos-bizarre-api.netlify.app/assets/jonathan.webp",
     nationality: "British",
     chapter: "Phantom Blood",
@@ -13,6 +14,7 @@ export const CharactersData = [
   {
     id: "2",
     name: "Dio Brando",
+    animeDebut: 1,
     image: "https://jojos-bizarre-api.netlify.app/assets/dio.webp",
     nationality: "British",
     chapter: "Phantom Blood",
@@ -24,6 +26,7 @@ export const CharactersData = [
   {
     id: "3",
     name: "Erina Pendleton",
+    animeDebut: 1,
     image: "https://jojos-bizarre-api.netlify.app/assets/erina.png",
     nationality: "British",
     chapter: "Phantom Blood",
@@ -34,7 +37,8 @@ export const CharactersData = [
   },
   {
     id: "4",
-    name: "Will Anthonio Zeppeli",
+    name: 4,
+    animeDebut: "Episode 1",
     image: "https://jojos-bizarre-api.netlify.app/assets/zeppeli.webp",
     nationality: "Italian",
     chapter: "Phantom Blood",
@@ -45,7 +49,8 @@ export const CharactersData = [
   },
   {
     id: "5",
-    name: "Robert E. O. Speedwagon",
+    name: 2,
+    animeDebut: "Episode 1",
     image: "https://jojos-bizarre-api.netlify.app/assets/speedwagon.png",
     nationality: "English",
     chapter: "Phantom Blood",
@@ -57,6 +62,7 @@ export const CharactersData = [
   {
     id: "6",
     name: "Tarkus",
+    animeDebut: 5,
     image: "https://jojos-bizarre-api.netlify.app/assets/tarkus.webp",
     nationality: "British",
     chapter: "Phantom Blood",
@@ -68,6 +74,7 @@ export const CharactersData = [
   {
     id: "7",
     name: "Bruford",
+    animeDebut: 5,
     image: "https://jojos-bizarre-api.netlify.app/assets/bruford.webp",
     nationality: "Scottish",
     chapter: "Phantom Blood",
@@ -79,6 +86,7 @@ export const CharactersData = [
   {
     id: "8",
     name: "Straizo",
+    animeDebut: 7,
     image: "https://jojos-bizarre-api.netlify.app/assets/straizo.webp",
     nationality: "Tibetan",
     chapter: "Phantom Blood",
@@ -90,6 +98,7 @@ export const CharactersData = [
   {
     id: "9",
     name: "Dire",
+    animeDebut: 7,
     image: "https://jojos-bizarre-api.netlify.app/assets/dire.png",
     nationality: "Unknown",
     chapter: "Phantom Blood",
@@ -101,6 +110,7 @@ export const CharactersData = [
   {
     id: "10",
     name: "Joseph Joestar",
+    animeDebut: 10,
     image: "https://jojos-bizarre-api.netlify.app/assets/joseph.webp",
     nationality: "British",
     chapter: "Battle Tendency",
@@ -112,6 +122,7 @@ export const CharactersData = [
   {
     id: "11",
     name: "Caesar Anthonoio Zeppeli",
+    animeDebut: 14,
     image: "https://jojos-bizarre-api.netlify.app/assets/caesar.png",
     nationality: "Italian",
     chapter: "Battle Tendency",
@@ -123,6 +134,7 @@ export const CharactersData = [
   {
     id: "12",
     name: "Lisa Lisa",
+    animeDebut: 16,
     image: "https://jojos-bizarre-api.netlify.app/assets/lisalisa.webp",
     nationality: "Italian",
     chapter: "Phantom Blood",
@@ -134,6 +146,7 @@ export const CharactersData = [
   {
     id: "13",
     name: "Rudol von Stroheim",
+    animeDebut: 11,
     image: "https://jojos-bizarre-api.netlify.app/assets/stronheim.png",
     nationality: "German",
     chapter: "Battle Tendency",
@@ -145,6 +158,7 @@ export const CharactersData = [
   {
     id: "14",
     name: "Kars",
+    animeDebut: 14,
     image: "https://jojos-bizarre-api.netlify.app/assets/kars.webp",
     nationality: "Pillar Man",
     chapter: "Battle Tendency",
@@ -156,6 +170,7 @@ export const CharactersData = [
   {
     id: "15",
     name: "Esidisi",
+    animeDebut: 14,
     image: "https://jojos-bizarre-api.netlify.app/assets/esidisi.webp",
     chapter: "Battle Tendency",
     living: false,
@@ -166,6 +181,7 @@ export const CharactersData = [
   {
     id: "16",
     name: "Wamuu",
+    animeDebut: 14,
     image: "https://jojos-bizarre-api.netlify.app/assets/wamuu.webp",
     nationality: "Pillar Man",
     chapter: "Battle Tendency",
@@ -177,6 +193,7 @@ export const CharactersData = [
   {
     id: "17",
     name: "Santana",
+    animeDebut: 12,
     image: "https://jojos-bizarre-api.netlify.app/assets/santana.png",
     nationality: "Pillar Man",
     chapter: "Battle Tendency",
@@ -188,6 +205,7 @@ export const CharactersData = [
   {
     id: "18",
     name: "Jotaro Kujo",
+    animeDebut: 27,
     image: "https://jojos-bizarre-api.netlify.app/assets/jotaro.png",
     nationality: "Japanese",
     chapter: "Stardust Crusaders",
@@ -199,6 +217,7 @@ export const CharactersData = [
   {
     id: "19",
     name: "Muhammad Avdol",
+    animeDebut: 27,
     image: "https://jojos-bizarre-api.netlify.app/assets/avdol.webp",
     nationality: "Egyptian",
     chapter: "Stardust Crusaders",
@@ -210,6 +229,7 @@ export const CharactersData = [
   {
     id: "20",
     name: "Noriaki Kakyoin",
+    animeDebut: 28,
     image: "https://jojos-bizarre-api.netlify.app/assets/kakyoin.webp",
     nationality: "Japanese",
     chapter: "Stardust Crusaders",
@@ -221,6 +241,7 @@ export const CharactersData = [
   {
     id: "21",
     name: "Jean Pierre Polnareff",
+    animeDebut: 30,
     image: "https://jojos-bizarre-api.netlify.app/assets/polnareff.png",
     nationality: "French",
     chapter: "Stardust Crusaders",
@@ -232,6 +253,7 @@ export const CharactersData = [
   {
     id: "22",
     name: "Iggy",
+    animeDebut: 50,
     image: "https://jojos-bizarre-api.netlify.app/assets/iggy.webp",
     nationality: "American",
     chapter: "Stardust Crusaders",
@@ -243,6 +265,7 @@ export const CharactersData = [
   {
     id: "23",
     name: "Enya the Hag",
+    animeDebut: 28,
     image: "https://jojos-bizarre-api.netlify.app/assets/enya.webp",
     nationality: "Unknown",
     chapter: "Stardust Crusaders",
@@ -254,6 +277,7 @@ export const CharactersData = [
   {
     id: "24",
     name: "Vanilla Ice (Cool Ice)",
+    animeDebut: 68,
     image: "https://jojos-bizarre-api.netlify.app/assets/vanillaice.png",
     nationality: "Unknown",
     chapter: "Stardust Crusaders",
@@ -265,6 +289,7 @@ export const CharactersData = [
   {
     id: "25",
     name: "Hol Horse",
+    animeDebut: 36,
     image: "https://jojos-bizarre-api.netlify.app/assets/holhorse.png",
     nationality: "Unknown",
     chapter: "Stardust Crusaders",
@@ -276,6 +301,7 @@ export const CharactersData = [
   {
     id: "26",
     name: "J.Geil",
+    animeDebut: 36,
     image: "https://jojos-bizarre-api.netlify.app/assets/geil.webp",
     nationality: "Unknown",
     chapter: "Stardust Crusaders",
@@ -287,6 +313,7 @@ export const CharactersData = [
   {
     id: "27",
     name: "Daniel J. D'Arby",
+    animeDebut: 60,
     image: "https://jojos-bizarre-api.netlify.app/assets/danieldarby.webp",
     nationality: "American",
     chapter: "Stardust Crusaders",
@@ -298,6 +325,7 @@ export const CharactersData = [
   {
     id: "28",
     name: "Terence T. D'Arby",
+    animeDebut: 65,
     image: "https://jojos-bizarre-api.netlify.app/assets/terencedarby.png",
     nationality: "American",
     chapter: "Stardust Crusaders",
@@ -309,6 +337,7 @@ export const CharactersData = [
   {
     id: "29",
     name: "Pet Shop",
+    animeDebut: 29,
     image: "https://jojos-bizarre-api.netlify.app/assets/petshop.png",
     nationality: "Unknown",
     chapter: "Stardust Crusaders",
@@ -320,6 +349,7 @@ export const CharactersData = [
   {
     id: "30",
     name: "N'Doul",
+    animeDebut: 51,
     image: "https://jojos-bizarre-api.netlify.app/assets/ndoul.png",
     nationality: "Egyptian",
     chapter: "Stardust Crusaders",
@@ -331,6 +361,7 @@ export const CharactersData = [
   {
     id: "31",
     name: "Mariah",
+    animeDebut: 55,
     image: "https://jojos-bizarre-api.netlify.app/assets/mariah.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -342,6 +373,7 @@ export const CharactersData = [
   {
     id: "32",
     name: "Alessi",
+    animeDebut: 57,
     image: "https://jojos-bizarre-api.netlify.app/assets/alessi.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -353,6 +385,7 @@ export const CharactersData = [
   {
     id: "33",
     name: "Oingo (Zenyatta)",
+    animeDebut: 52,
     image: "https://jojos-bizarre-api.netlify.app/assets/oingo.png",
     nationality: "Egyptian",
     chapter: "Stardust Crusaders",
@@ -364,6 +397,7 @@ export const CharactersData = [
   {
     id: "34",
     name: "Boingo (Mondatta)",
+    animeDebut: 52,
     image: "https://jojos-bizarre-api.netlify.app/assets/boingo.png",
     nationality: "Egyptian",
     chapter: "Stardust Crusaders",
@@ -375,6 +409,7 @@ export const CharactersData = [
   {
     id: "35",
     name: "Anubis",
+    animeDebut: 54,
     image: "https://jojos-bizarre-api.netlify.app/assets/anubis.png",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -386,6 +421,7 @@ export const CharactersData = [
   {
     id: "36",
     name: "Gray Fly",
+    animeDebut: 30,
     image: "https://jojos-bizarre-api.netlify.app/assets/grayfly.png",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -397,6 +433,7 @@ export const CharactersData = [
   {
     id: "37",
     name: "Imposter Captain Tennille",
+    animeDebut: 32,
     image: "https://jojos-bizarre-api.netlify.app/assets/captain.png",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -408,6 +445,7 @@ export const CharactersData = [
   {
     id: "38",
     name: "Forever",
+    animeDebut: 33,
     image: "https://jojos-bizarre-api.netlify.app/assets/forever.png",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -418,7 +456,8 @@ export const CharactersData = [
   },
   {
     id: "39",
-    name: "Devo (Soul Sacrifice)",
+    name: "Devo the cursed",
+    animeDebut: 34,
     image: "https://jojos-bizarre-api.netlify.app/assets/devo.webp",
     nationality: "Native American",
     chapter: "Stardust Crusaders",
@@ -430,6 +469,7 @@ export const CharactersData = [
   {
     id: "40",
     name: "Rubber Soul",
+    animeDebut: 35,
     image: "https://jojos-bizarre-api.netlify.app/assets/rubbersoul.png",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -441,6 +481,7 @@ export const CharactersData = [
   {
     id: "41",
     name: "Nena",
+    animeDebut: 38,
     image: "https://jojos-bizarre-api.netlify.app/assets/nena.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -452,6 +493,7 @@ export const CharactersData = [
   {
     id: "42",
     name: "ZZ",
+    animeDebut: 39,
     image: "https://jojos-bizarre-api.netlify.app/assets/zz.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -463,6 +505,7 @@ export const CharactersData = [
   {
     id: "43",
     name: "Steely Dan",
+    animeDebut: 42,
     image: "https://jojos-bizarre-api.netlify.app/assets/steelydan.png",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -474,6 +517,7 @@ export const CharactersData = [
   {
     id: "44",
     name: "Arabia Fats",
+    animeDebut: 44,
     image: "https://jojos-bizarre-api.netlify.app/assets/arabia.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -485,6 +529,7 @@ export const CharactersData = [
   {
     id: "45",
     name: "Mannish Boy",
+    animeDebut: 45,
     image: "https://jojos-bizarre-api.netlify.app/assets/mannish.png",
     nationality: "Egyptian",
     chapter: "Stardust Crusaders",
@@ -496,6 +541,7 @@ export const CharactersData = [
   {
     id: "46",
     name: "Cameo",
+    animeDebut: 48,
     image: "https://jojos-bizarre-api.netlify.app/assets/cameo.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -507,6 +553,7 @@ export const CharactersData = [
   {
     id: "47",
     name: "Midler",
+    animeDebut: 49,
     image: "https://jojos-bizarre-api.netlify.app/assets/midler.webp",
     nationality: "unknown",
     chapter: "Stardust Crusaders",
@@ -518,6 +565,7 @@ export const CharactersData = [
   {
     id: "48",
     name: "Josuke Higashikata",
+    animeDebut: 75,
     image: "https://jojos-bizarre-api.netlify.app/assets/josuke.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -529,6 +577,7 @@ export const CharactersData = [
   {
     id: "49",
     name: "Tomoko Higashikata",
+    animeDebut: 75,
     image: "https://jojos-bizarre-api.netlify.app/assets/tomoko.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -540,6 +589,7 @@ export const CharactersData = [
   {
     id: "50",
     name: "Okuyasu Nijimura",
+    animeDebut: 77,
     image: "https://jojos-bizarre-api.netlify.app/assets/okuyasu.webp",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -551,6 +601,7 @@ export const CharactersData = [
   {
     id: "51",
     name: "Keicho Nijimura",
+    animeDebut: 77,
     image: "https://jojos-bizarre-api.netlify.app/assets/keicho.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -562,6 +613,7 @@ export const CharactersData = [
   {
     id: "52",
     name: "Nijimura's Father",
+    animeDebut: 79,
     image: "https://jojos-bizarre-api.netlify.app/assets/father.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -573,6 +625,7 @@ export const CharactersData = [
   {
     id: "53",
     name: "Koichi Hirose",
+    animeDebut: 75,
     image: "https://jojos-bizarre-api.netlify.app/assets/koichi.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -584,6 +637,7 @@ export const CharactersData = [
   {
     id: "54",
     name: "Rohan Kishibe",
+    animeDebut: 88,
     image: "https://jojos-bizarre-api.netlify.app/assets/rohan.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -595,6 +649,7 @@ export const CharactersData = [
   {
     id: "55",
     name: "Reimi Sugimoto",
+    animeDebut: 91,
     image: "https://jojos-bizarre-api.netlify.app/assets/reimi.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -606,6 +661,7 @@ export const CharactersData = [
   {
     id: "56",
     name: "Shigekiyo Yangu",
+    animeDebut: 92,
     image: "https://jojos-bizarre-api.netlify.app/assets/shigechi.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -617,6 +673,7 @@ export const CharactersData = [
   {
     id: "57",
     name: "Mikitaka Hazekura",
+    animeDebut: 101,
     image: "https://jojos-bizarre-api.netlify.app/assets/mikitaka.png",
     nationality: "unknown",
     chapter: "Diamond is Unbreakable",
@@ -628,6 +685,7 @@ export const CharactersData = [
   {
     id: "58",
     name: "Yukako Yamagishi",
+    animeDebut: 81,
     image: "https://jojos-bizarre-api.netlify.app/assets/yukako.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -639,6 +697,7 @@ export const CharactersData = [
   {
     id: "59",
     name: "Yuya Fungami",
+    animeDebut: 103,
     image: "https://jojos-bizarre-api.netlify.app/assets/yuya.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -650,6 +709,7 @@ export const CharactersData = [
   {
     id: "60",
     name: "Toshikazu Hazamada",
+    animeDebut: 81,
     image: "https://jojos-bizarre-api.netlify.app/assets/toshikazu.jpg",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -661,6 +721,7 @@ export const CharactersData = [
   {
     id: "61",
     name: "Tonio Trussardi",
+    animeDebut: 84,
     image: "https://jojos-bizarre-api.netlify.app/assets/tonio.png",
     nationality: "Italian",
     chapter: "Diamond is Unbreakable",
@@ -672,6 +733,7 @@ export const CharactersData = [
   {
     id: "62",
     name: "Aya Tsuji",
+    animeDebut: 94,
     image: "https://jojos-bizarre-api.netlify.app/assets/aya.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -683,6 +745,7 @@ export const CharactersData = [
   {
     id: "63",
     name: "Yoshikage Kira",
+    animeDebut: 91,
     image: "https://jojos-bizarre-api.netlify.app/assets/kira.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -694,6 +757,7 @@ export const CharactersData = [
   {
     id: "64",
     name: "Yoshihiro Kira",
+    animeDebut: 99,
     image: "https://jojos-bizarre-api.netlify.app/assets/yoshihorokira.webp",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -705,6 +769,7 @@ export const CharactersData = [
   {
     id: "65",
     name: "Tama (Stray cat)",
+    animeDebut: 103,
     image: "https://jojos-bizarre-api.netlify.app/assets/tama.png",
     nationality: "unknown",
     chapter: "Diamond is Unbreakable",
@@ -716,6 +781,7 @@ export const CharactersData = [
   {
     id: "66",
     name: "Akira Otoishi",
+    animeDebut: 86,
     image: "https://jojos-bizarre-api.netlify.app/assets/akira.webp",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -727,6 +793,7 @@ export const CharactersData = [
   {
     id: "67",
     name: 'Anjuro "Angelo" Katagiri',
+    animeDebut: 74,
     image: "https://jojos-bizarre-api.netlify.app/assets/angelo.webp",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -738,6 +805,7 @@ export const CharactersData = [
   {
     id: "68",
     name: "Bug-Eaten",
+    animeDebut: 90,
     image: "https://jojos-bizarre-api.netlify.app/assets/bugeaten.png",
     nationality: "unknown",
     chapter: "Diamond is Unbreakable",
@@ -749,6 +817,7 @@ export const CharactersData = [
   {
     id: "69",
     name: "Ken Oyanagi",
+    animeDebut: 100,
     image: "https://jojos-bizarre-api.netlify.app/assets/ken.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -760,6 +829,7 @@ export const CharactersData = [
   {
     id: "70",
     name: "Toyohiro Kanedaichi",
+    animeDebut: 105,
     image: "https://jojos-bizarre-api.netlify.app/assets/toyohiro.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -771,6 +841,7 @@ export const CharactersData = [
   {
     id: "71",
     name: "Terunosuke Miyamoto",
+    animeDebut: 106,
     image: "https://jojos-bizarre-api.netlify.app/assets/miyamoto.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -782,6 +853,7 @@ export const CharactersData = [
   {
     id: "72",
     name: "Masazo Kinoto",
+    animeDebut: 105,
     image: "https://jojos-bizarre-api.netlify.app/assets/masazo.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -793,6 +865,7 @@ export const CharactersData = [
   {
     id: "73",
     name: "Tamami Kobayashi",
+    animeDebut: 80,
     image: "https://jojos-bizarre-api.netlify.app/assets/tamami.png",
     nationality: "Japanese",
     chapter: "Diamond is Unbreakable",
@@ -804,6 +877,7 @@ export const CharactersData = [
   {
     id: "74",
     name: "Shizuka Joestar",
+    animeDebut: 87,
     image: "https://jojos-bizarre-api.netlify.app/assets/shizuka.webp",
     nationality: "Japanese",
     living: true,
@@ -814,6 +888,7 @@ export const CharactersData = [
   {
     id: "75",
     name: "Giorno Giovanna",
+    animeDebut: 114,
     image: "https://jojos-bizarre-api.netlify.app/assets/giorno.png",
     nationality: "Japanese-British",
     chapter: "Vento Aureo",
@@ -825,6 +900,7 @@ export const CharactersData = [
   {
     id: "76",
     name: "Bruno Bucciarati",
+    animeDebut: 114,
     image: "https://jojos-bizarre-api.netlify.app/assets/bucciarati.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -836,6 +912,7 @@ export const CharactersData = [
   {
     id: "77",
     name: "Leone Abbacchio",
+    animeDebut: 117,
     image: "https://jojos-bizarre-api.netlify.app/assets/abbacchio.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -847,6 +924,7 @@ export const CharactersData = [
   {
     id: "78",
     name: "Guido Mista",
+    animeDebut: 117,
     image: "https://jojos-bizarre-api.netlify.app/assets/guido.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -858,6 +936,7 @@ export const CharactersData = [
   {
     id: "79",
     name: "Narancia Ghirga",
+    animeDebut: 117,
     image: "https://jojos-bizarre-api.netlify.app/assets/narancia.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -869,6 +948,7 @@ export const CharactersData = [
   {
     id: "80",
     name: "Pannacotta Fugo",
+    animeDebut: 117,
     image: "https://jojos-bizarre-api.netlify.app/assets/fugo.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -880,6 +960,7 @@ export const CharactersData = [
   {
     id: "81",
     name: "Trish Una",
+    animeDebut: 122,
     image: "https://jojos-bizarre-api.netlify.app/assets/trish.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -889,19 +970,9 @@ export const CharactersData = [
     gender: "female",
   },
   {
-    id: "82",
-    name: "Silver Chariot Requiem",
-    image: "https://jojos-bizarre-api.netlify.app/assets/chariotrequiem.png",
-    nationality: "none",
-    chapter: "Vento Aureo",
-    living: true,
-    isHuman: false,
-    isStandUser: false,
-    gender: "none",
-  },
-  {
     id: "83",
     name: "Coco Jumbo",
+    animeDebut: 127,
     image: "https://jojos-bizarre-api.netlify.app/assets/coco.png",
     nationality: "unknown",
     chapter: "Vento Aureo",
@@ -913,6 +984,7 @@ export const CharactersData = [
   {
     id: "84",
     name: "Diavolo",
+    animeDebut: 131,
     image: "https://jojos-bizarre-api.netlify.app/assets/diavolo.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -924,6 +996,7 @@ export const CharactersData = [
   {
     id: "85",
     name: "Vinegar Doppio",
+    animeDebut: 134,
     image: "https://jojos-bizarre-api.netlify.app/assets/doppio.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -935,6 +1008,7 @@ export const CharactersData = [
   {
     id: "86",
     name: "Squalo and Tiziano",
+    animeDebut: 135,
     image: "https://jojos-bizarre-api.netlify.app/assets/squalo.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -946,6 +1020,7 @@ export const CharactersData = [
   {
     id: "87",
     name: "Carne",
+    animeDebut: 137,
     image: "https://jojos-bizarre-api.netlify.app/assets/carne.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -957,7 +1032,8 @@ export const CharactersData = [
   {
     id: "88",
     name: "Cioccolata",
-    image: "ciocco.png",
+    animeDebut: 142,
+    image: "https://jojos-bizarre-api.netlify.app/assets/ciocco.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
     living: false,
@@ -968,6 +1044,7 @@ export const CharactersData = [
   {
     id: "89",
     name: "Secco",
+    animeDebut: 142,
     image: "https://jojos-bizarre-api.netlify.app/assets/secco.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -979,6 +1056,7 @@ export const CharactersData = [
   {
     id: "90",
     name: "Polpo",
+    animeDebut: 116,
     image: "https://jojos-bizarre-api.netlify.app/assets/polpo.webp",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -990,6 +1068,7 @@ export const CharactersData = [
   {
     id: "91",
     name: "Mario Zucchero",
+    animeDebut: 118,
     image: "https://jojos-bizarre-api.netlify.app/assets/mario.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1001,6 +1080,7 @@ export const CharactersData = [
   {
     id: "92",
     name: "Sale",
+    animeDebut: 118,
     image: "https://jojos-bizarre-api.netlify.app/assets/sale.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1012,6 +1092,7 @@ export const CharactersData = [
   {
     id: "93",
     name: "Risotto Nero",
+    animeDebut: 123,
     image: "https://jojos-bizarre-api.netlify.app/assets/risotto.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1023,6 +1104,7 @@ export const CharactersData = [
   {
     id: "94",
     name: "Formaggio",
+    animeDebut: 122,
     image: "https://jojos-bizarre-api.netlify.app/assets/formaggio.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1034,6 +1116,7 @@ export const CharactersData = [
   {
     id: "95",
     name: "Illuso",
+    animeDebut: 123,
     image: "https://jojos-bizarre-api.netlify.app/assets/illuso.webp",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1045,6 +1128,7 @@ export const CharactersData = [
   {
     id: "96",
     name: "Prosciutto",
+    animeDebut: 123,
     image: "https://jojos-bizarre-api.netlify.app/assets/prosciutto.webp",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1056,6 +1140,7 @@ export const CharactersData = [
   {
     id: "97",
     name: "Pesci",
+    animeDebut: 123,
     image: "https://jojos-bizarre-api.netlify.app/assets/peschi.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1067,6 +1152,7 @@ export const CharactersData = [
   {
     id: "98",
     name: "Melone",
+    animeDebut: 123,
     image: "https://jojos-bizarre-api.netlify.app/assets/melone.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1078,6 +1164,7 @@ export const CharactersData = [
   {
     id: "99",
     name: "Ghiaccio",
+    animeDebut: 123,
     image: "https://jojos-bizarre-api.netlify.app/assets/ghiaccio.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1089,6 +1176,7 @@ export const CharactersData = [
   {
     id: "100",
     name: "Scolippi",
+    animeDebut: 151,
     image: "https://jojos-bizarre-api.netlify.app/assets/scolippi.png",
     nationality: "Italian",
     chapter: "Vento Aureo",
@@ -1100,6 +1188,7 @@ export const CharactersData = [
   {
     id: "101",
     name: "Jolyne Kujo",
+    animeDebut: 153,
     image: "https://jojos-bizarre-api.netlify.app/assets/jolyne.webp",
     nationality: "Japanese-American",
     chapter: "Stone Ocean",
@@ -1111,6 +1200,7 @@ export const CharactersData = [
   {
     id: "102",
     name: "Ermes Costello",
+    animeDebut: 153,
     image: "https://jojos-bizarre-api.netlify.app/assets/ermes.webp",
     nationality: "Mexican-American",
     chapter: "Stone Ocean",
@@ -1122,6 +1212,7 @@ export const CharactersData = [
   {
     id: "103",
     name: "Emporio Alniño",
+    animeDebut: 155,
     image: "https://jojos-bizarre-api.netlify.app/assets/emporio.png",
     nationality: "American",
     chapter: "Stone Ocean",
@@ -1133,6 +1224,7 @@ export const CharactersData = [
   {
     id: "104",
     name: "Foo Fighters (F.F.)",
+    animeDebut: 159,
     image: "https://jojos-bizarre-api.netlify.app/assets/foofighters.png",
     nationality: "none",
     chapter: "Stone Ocean",
@@ -1144,6 +1236,7 @@ export const CharactersData = [
   {
     id: "105",
     name: "Narciso Anasui",
+    animeDebut: 162,
     image: "https://jojos-bizarre-api.netlify.app/assets/narciso.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1155,6 +1248,7 @@ export const CharactersData = [
   {
     id: "106",
     name: "Weather Report",
+    animeDebut: 162,
     image: "https://jojos-bizarre-api.netlify.app/assets/weather.png",
     nationality: "Italian,American",
     chapter: "Stone Ocean",
@@ -1166,6 +1260,7 @@ export const CharactersData = [
   {
     id: "107",
     name: "Gwess",
+    animeDebut: 153,
     image: "https://jojos-bizarre-api.netlify.app/assets/gwess.webp",
     nationality: "American",
     chapter: "Stone Ocean",
@@ -1177,6 +1272,7 @@ export const CharactersData = [
   {
     id: "108",
     name: "Enrico Pucci",
+    animeDebut: 160,
     image: "https://jojos-bizarre-api.netlify.app/assets/pucci.webp",
     nationality: "Italian-American",
     chapter: "Stone Ocean",
@@ -1188,6 +1284,7 @@ export const CharactersData = [
   {
     id: "109",
     name: "Donatello Versus",
+    animeDebut: 180,
     image: "https://jojos-bizarre-api.netlify.app/assets/donatello.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1199,6 +1296,7 @@ export const CharactersData = [
   {
     id: "110",
     name: "Rikiel",
+    animeDebut: 177,
     image: "https://jojos-bizarre-api.netlify.app/assets/rikiel.webp",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1210,6 +1308,7 @@ export const CharactersData = [
   {
     id: "111",
     name: "Ungalo",
+    animeDebut: 177,
     image: "https://jojos-bizarre-api.netlify.app/assets/ungalo.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1221,6 +1320,7 @@ export const CharactersData = [
   {
     id: "112",
     name: "The Green Baby",
+    animeDebut: 171,
     image: "https://jojos-bizarre-api.netlify.app/assets/greenbaby.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1232,6 +1332,7 @@ export const CharactersData = [
   {
     id: "113",
     name: "Johngalli A",
+    animeDebut: 155,
     image: "https://jojos-bizarre-api.netlify.app/assets/johngalli.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1243,6 +1344,7 @@ export const CharactersData = [
   {
     id: "114",
     name: "Sports Maxx",
+    animeDebut: 164,
     image: "https://jojos-bizarre-api.netlify.app/assets/sportsmaxx.png",
     nationality: "American",
     chapter: "Stone Ocean",
@@ -1254,6 +1356,7 @@ export const CharactersData = [
   {
     id: "115",
     name: "Miuccia Miuller",
+    animeDebut: 175,
     image: "https://jojos-bizarre-api.netlify.app/assets/miucca.png",
     nationality: "American",
     chapter: "Stone Ocean",
@@ -1265,6 +1368,7 @@ export const CharactersData = [
   {
     id: "116",
     name: "Miraschon",
+    animeDebut: 161,
     image: "https://jojos-bizarre-api.netlify.app/assets/miraschon.webp",
     nationality: "American",
     chapter: "Stone Ocean",
@@ -1276,6 +1380,7 @@ export const CharactersData = [
   {
     id: "117",
     name: "Lang Rangler",
+    animeDebut: 162,
     image: "https://jojos-bizarre-api.netlify.app/assets/lang.png",
     nationality: "American",
     chapter: "Stone Ocean",
@@ -1287,6 +1392,7 @@ export const CharactersData = [
   {
     id: "118",
     name: "Kenzou",
+    animeDebut: 167,
     image: "https://jojos-bizarre-api.netlify.app/assets/kenzou.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1298,6 +1404,7 @@ export const CharactersData = [
   {
     id: "119",
     name: "D an G",
+    animeDebut: 167,
     image: "https://jojos-bizarre-api.netlify.app/assets/DG.webp",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1309,6 +1416,7 @@ export const CharactersData = [
   {
     id: "120",
     name: "Guccio",
+    animeDebut: 171,
     image: "https://jojos-bizarre-api.netlify.app/assets/guccio.png",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1320,6 +1428,7 @@ export const CharactersData = [
   {
     id: "121",
     name: "Viviano Westwood",
+    animeDebut: 165,
     image: "https://jojos-bizarre-api.netlify.app/assets/viviano.webp",
     nationality: "unknown",
     chapter: "Stone Ocean",
@@ -1331,6 +1440,7 @@ export const CharactersData = [
   {
     id: "122",
     name: "Thunder McQueen",
+    animeDebut: 158,
     image: "https://jojos-bizarre-api.netlify.app/assets/thunder.webp",
     nationality: "unknown",
     chapter: "Stone Ocean",
