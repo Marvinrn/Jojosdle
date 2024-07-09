@@ -1,8 +1,9 @@
 .characterFetchContainer {
-  width: 75%;
+  width: 50%;
   min-height: 100vh;
   margin: auto;
-  backdrop-filter: blur(2px); /* Apply blur effect to the backdrop */
+  background-color: rgba(70, 38, 70, 0.959);
+  // backdrop-filter: blur(2px);
 
   .characterFetch__title {
     text-align: center;

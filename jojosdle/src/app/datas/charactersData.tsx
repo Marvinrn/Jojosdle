@@ -1252,7 +1252,7 @@ export const CharactersData = [
     name: "Weather Report",
     animeDebut: 162,
     image: "https://jojos-bizarre-api.netlify.app/assets/weather.png",
-    nationality: "Italian,American",
+    nationality: "Italian-American",
     chapter: "Stone Ocean",
     living: false,
     isHuman: true,

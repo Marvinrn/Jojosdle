@@ -11,16 +11,20 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    width: 100%;
   }
 
   &__propertiesTitle {
+    font-size: 1em;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     border-bottom: 2px solid white;
-    width: 100px;
     margin: 0px 5px;
+    padding: 10px 0px;
+    width: 100px;
+    height: 50px;
   }
 
   .characterList__listContainer {
@@ -39,7 +43,8 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    font-size: 0.7em;
+    font-size: 1em;
+    font-weight: bold;
     width: 100px;
     height: 100px;
     margin: 5px;
@@ -55,11 +60,6 @@
       border-radius: 25px;
     }
 
-    &.orange {
-      background-color: rgb(228, 156, 23); /* Orange background color */
-      border: 2px solid orange; /* Default background color */
-    }
-
     &.visible {
       opacity: 1; /* Visible with transition */
     }
@@ -73,12 +73,16 @@
       font-size: 1.2em;
     }
 
-    .greater {
-      color: green;
+    &.greater {
+      background-image: url("../../assets/ArrowUp.png");
+      background-size: contain;
+      background-repeat: no-repeat;
     }
 
-    .lesser {
-      color: red;
+    &.lesser {
+      background-image: url("../../assets/ArrowDown.png");
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 }

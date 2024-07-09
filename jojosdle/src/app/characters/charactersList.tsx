@@ -40,6 +40,7 @@ const CharacterList: React.FC<CharacterListProps> = ({
       displayedCharacters.forEach((char, charIndex) => {
         const properties = [
           "image",
+          "gender",
           "nationality",
           "animeDebut",
           "chapter",
@@ -63,10 +64,11 @@ const CharacterList: React.FC<CharacterListProps> = ({
     <div className="characterList">
       <div className="characterList__titleList">
         <p className="characterList__propertiesTitle">Character</p>
+        <p className="characterList__propertiesTitle">Gender</p>
         <p className="characterList__propertiesTitle">Nationality</p>
-        <p className="characterList__propertiesTitle">Anime First Appearance</p>
-        <p className="characterList__propertiesTitle">Chapter</p>
-        <p className="characterList__propertiesTitle">Is Stand User</p>
+        <p className="characterList__propertiesTitle">First Appearance</p>
+        <p className="characterList__propertiesTitle">Part</p>
+        <p className="characterList__propertiesTitle">Stand User</p>
         <p className="characterList__propertiesTitle">Is alive</p>
         <p className="characterList__propertiesTitle">Is Human</p>
       </div>
@@ -96,6 +98,20 @@ const CharacterList: React.FC<CharacterListProps> = ({
               <p
                 className={`characterList__properties ${getClassForProperty(
                   char,
+                  "gender"
+                )} ${
+                  delayedCharacters.find(
+                    (item) => item.id === char.id && item.property === "gender"
+                  )
+                    ? "visible"
+                    : "hidden"
+                }`}
+              >
+                {char.gender}
+              </p>
+              <p
+                className={`characterList__properties ${getClassForProperty(
+                  char,
                   "nationality"
                 )} ${
                   delayedCharacters.find(
@@ -122,12 +138,6 @@ const CharacterList: React.FC<CharacterListProps> = ({
                 }`}
               >
                 Episode {char.animeDebut}
-                {getClassForProperty(char, "animeDebut") === "greater" && (
-                  <span className="arrow greater">▲</span>
-                )}
-                {getClassForProperty(char, "animeDebut") === "lesser" && (
-                  <span className="arrow lesser">▼</span>
-                )}
               </p>
               <p
                 className={`characterList__properties ${getClassForProperty(

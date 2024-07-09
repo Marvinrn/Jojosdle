@@ -86,6 +86,7 @@ const CharacterFetch: React.FC = () => {
       const propertiesToCompare = [
         "image",
         "name",
+        "gender",
         "nationality",
         "living",
         "isHuman",
@@ -126,9 +127,9 @@ const CharacterFetch: React.FC = () => {
   return (
     <div className="characterFetchContainer">
       <h1 className="characterFetch__title">Guess the Character</h1>
-      {randomCharacter && (
+      {/* {randomCharacter && (
         <RandomCharacterHint randomCharacter={randomCharacter} />
-      )}
+      )} */}
       <CharacterSearchInput
         searchQuery={searchQuery}
         handleSearchChange={handleSearchChange}
