@@ -456,7 +456,7 @@ export const CharactersData = [
   },
   {
     id: "39",
-    name: "Devo the cursed",
+    name: "Devo the Cursed",
     animeDebut: 34,
     image: "https://jojos-bizarre-api.netlify.app/assets/devo.webp",
     nationality: "Native American",
