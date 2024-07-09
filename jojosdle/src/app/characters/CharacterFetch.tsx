@@ -6,6 +6,7 @@ import { CharacterProperties } from "./CharacterProperties";
 import CharacterSearchInput from "./CharacterSearchInput";
 import FilteredCharacterList from "./FilteredCharacterList";
 import RandomCharacterHint from "./RandomCharacterHint";
+import { CharactersData } from "../datas/charactersData";
 
 const CharacterFetch: React.FC = () => {
   const [characters, setCharacters] = useState<CharacterProperties[]>([]);
@@ -22,28 +23,18 @@ const CharacterFetch: React.FC = () => {
   const [searchDisabled, setSearchDisabled] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchCharacters = async () => {
-      try {
-        const response = await fetch(
-          "https://stand-by-me.herokuapp.com/api/v1/characters"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch characters");
-        }
-        const data = await response.json();
-        setCharacters(data);
-        if (data.length > 0) {
-          const randomIndex = Math.floor(Math.random() * data.length);
-          setRandomCharacter(data[randomIndex]);
-        }
-      } catch (err: unknown) {
-        setError(
-          err instanceof Error ? err.message : "An unknown error occurred"
-        );
+    try {
+      const data: CharacterProperties[] = CharactersData;
+      setCharacters(data);
+      if (data.length > 0) {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        setRandomCharacter(data[randomIndex]);
       }
-    };
-
-    fetchCharacters();
+    } catch (err: unknown) {
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred"
+      );
+    }
   }, []);
 
   useEffect(() => {
@@ -89,7 +80,7 @@ const CharacterFetch: React.FC = () => {
   const compareWithRandomCharacter = (char: CharacterProperties) => {
     if (randomCharacter) {
       const results: {
-        [key: string]: "match" | "partial" | "no-match" | undefined;
+        [key: string]: "match" | "no-match" | "greater" | "lesser" | undefined;
       } = {};
 
       const propertiesToCompare = [
@@ -98,42 +89,27 @@ const CharacterFetch: React.FC = () => {
         "nationality",
         "living",
         "isHuman",
-        "family",
+        "isStandUser",
+        "animeDebut",
         "chapter",
       ];
 
       propertiesToCompare.forEach((prop) => {
-        if (char[prop] === randomCharacter[prop]) {
-          results[prop] = "match";
-        } else if (char[prop] && randomCharacter[prop]) {
-          const charValues = char[prop]
-            .split(",")
-            .map((ch: string) => ch.trim());
-          const randomCharValues = randomCharacter[prop]
-            .split(",")
-            .map((ch: string) => ch.trim());
+        if (prop === "animeDebut") {
+          const charValue = char[prop] as number;
+          const randomCharValue = randomCharacter[prop] as number;
 
-          const commonValues = charValues.filter((value: any) =>
-            randomCharValues.includes(value)
-          );
-
-          if (prop === "family") {
-            const isFamilyMatch =
-              charValues.includes(randomCharacter.name) ||
-              randomCharValues.includes(char.name);
-
-            if (isFamilyMatch) {
-              results[prop] = "match";
-            } else if (commonValues.length > 0) {
-              results[prop] = "partial";
-            } else {
-              results[prop] = "no-match";
-            }
-          } else if (commonValues.length > 0) {
-            results[prop] = "partial";
+          if (randomCharValue === charValue) {
+            results[prop] = "match";
+          } else if (randomCharValue > charValue) {
+            results[prop] = "greater";
           } else {
-            results[prop] = "no-match";
+            results[prop] = "lesser";
           }
+
+          console.log(`Comparison for ${prop}: ${results[prop]}`);
+        } else if (char[prop] === randomCharacter[prop]) {
+          results[prop] = "match";
         } else {
           results[prop] = "no-match";
         }

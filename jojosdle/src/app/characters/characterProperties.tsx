@@ -3,11 +3,13 @@ export interface CharacterProperties {
   name: string;
   image: string;
   nationality: string;
-  family: string;
+  animeDebut: number;
   chapter: string;
   living: boolean;
   isHuman: boolean;
-  comparisonResults: {
+  isStandUser: boolean;
+  gender: string;
+  comparisonResults?: {
     [key: string]: string | undefined; // Index signature allowing any string key
   };
   [key: string]: any;

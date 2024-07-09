@@ -24,7 +24,7 @@ const FilteredCharacterList: React.FC<FilteredCharacterListProps> = ({
               <div className="filteredList__character">
                 <div>
                   <Image
-                    src={`https://jojos-bizarre-api.netlify.app/assets/${char.image}`}
+                    src={char.image} // Directly use the image property
                     alt={char.name}
                     width={50}
                     height={50}
