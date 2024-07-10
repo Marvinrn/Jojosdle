@@ -1,11 +1,56 @@
 .searchBarContainer {
   display: flex;
+  flex-flow: column;
+  row-gap: 16px;
   justify-content: center;
+  align-items: center;
 
-  .searchBar {
-    margin: auto;
-    width: 25%;
-    height: 35px;
-    font-size: 1.2em;
+  .wrapper {
+    position: relative;
+    width: 35%;
+
+    .searchBar::placeholder {
+      opacity: 0;
+    }
+
+    .searchBar {
+      width: 100%;
+      height: 60px;
+      font-size: 1.2rem;
+      padding: 10px;
+      outline: none;
+      border: 1px solid gray;
+      box-sizing: border-box;
+      border-radius: 5px;
+      z-index: 1; /* Ensure input is on top */
+    }
+
+    label {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: gray;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      font-weight: 600;
+      z-index: 0; /* Ensure label is behind input */
+      pointer-events: none; /* Make sure label does not intercept click events */
+    }
+
+    .searchBar:focus + label,
+    .searchBar:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 0.8rem;
+      color: indigo;
+      background: #fff;
+      padding: 0 7px; /* Add padding to match the design */
+      z-index: 1; /* Bring label to front when active */
+    }
+
+    .searchBar:focus {
+      border: 2px solid indigo;
+    }
   }
 }

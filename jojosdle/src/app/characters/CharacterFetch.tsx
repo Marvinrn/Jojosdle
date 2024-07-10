@@ -7,6 +7,8 @@ import CharacterSearchInput from "./CharacterSearchInput";
 import FilteredCharacterList from "./FilteredCharacterList";
 import RandomCharacterHint from "./RandomCharacterHint";
 import { CharactersData } from "../datas/charactersData";
+import Image from "next/image";
+import GuessWhoTitle from "../../assets/JojoTitle.png";
 
 const CharacterFetch: React.FC = () => {
   const [characters, setCharacters] = useState<CharacterProperties[]>([]);
@@ -126,7 +128,16 @@ const CharacterFetch: React.FC = () => {
 
   return (
     <div className="characterFetchContainer">
-      <h1 className="characterFetch__title">Guess the Character</h1>
+      {/* <h1 className="characterFetch__title">Guess the Character</h1> */}
+      <div className="guessWhoContainer">
+        <Image
+          className="guessWho__title"
+          src={GuessWhoTitle}
+          alt="Image Du titre en pixel art"
+          width={256}
+          height={128}
+        />
+      </div>
       {/* {randomCharacter && (
         <RandomCharacterHint randomCharacter={randomCharacter} />
       )} */}
