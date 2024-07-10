@@ -19,9 +19,10 @@
       font-size: 1.2rem;
       padding: 10px;
       outline: none;
-      border: 1px solid gray;
+      border: 2px solid indigo;
       box-sizing: border-box;
-      border-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
       z-index: 1; /* Ensure input is on top */
     }
 
@@ -43,14 +44,15 @@
     .searchBar:not(:placeholder-shown) + label {
       top: 0;
       font-size: 0.8rem;
-      color: indigo;
-      background: #fff;
+      color: white;
+      background: #893f8e;
+      border-radius: 2px;
       padding: 0 7px; /* Add padding to match the design */
       z-index: 1; /* Bring label to front when active */
     }
 
     .searchBar:focus {
-      border: 2px solid indigo;
+      border: 3px solid rgb(39, 5, 63);
     }
   }
 }

@@ -82,7 +82,13 @@ const CharacterFetch: React.FC = () => {
   const compareWithRandomCharacter = (char: CharacterProperties) => {
     if (randomCharacter) {
       const results: {
-        [key: string]: "match" | "no-match" | "greater" | "lesser" | undefined;
+        [key: string]:
+          | "match"
+          | "no-match"
+          | "partial-match"
+          | "greater"
+          | "lesser"
+          | undefined;
       } = {};
 
       const propertiesToCompare = [
@@ -109,8 +115,20 @@ const CharacterFetch: React.FC = () => {
           } else {
             results[prop] = "lesser";
           }
+        } else if (prop === "nationality") {
+          const charNationality = char[prop] as string;
+          const randomCharNationality = randomCharacter[prop] as string;
 
-          console.log(`Comparison for ${prop}: ${results[prop]}`);
+          if (charNationality === randomCharNationality) {
+            results[prop] = "match";
+          } else if (
+            randomCharNationality.includes(charNationality) ||
+            charNationality.includes(randomCharNationality)
+          ) {
+            results[prop] = "partial-match";
+          } else {
+            results[prop] = "no-match";
+          }
         } else if (char[prop] === randomCharacter[prop]) {
           results[prop] = "match";
         } else {

@@ -60,6 +60,12 @@
       border-radius: 25px;
     }
 
+    &.orange {
+      background-color: rgb(231, 109, 28); /* Green background color */
+      border: 2px solid rgb(223, 79, 13); /* Default background color */
+      border-radius: 25px;
+    }
+
     &.visible {
       opacity: 1; /* Visible with transition */
     }

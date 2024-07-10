@@ -22,7 +22,7 @@ const CharacterSearchInput: React.FC<CharacterSearchInputProps> = ({
           onChange={handleSearchChange}
           disabled={searchDisabled}
         />
-        <label htmlFor="search">Search character</label>
+        <label htmlFor="search">Search character...</label>
       </div>
     </div>
   );

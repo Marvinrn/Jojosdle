@@ -26,6 +26,8 @@ const CharacterList: React.FC<CharacterListProps> = ({
         return "lesser";
       case "no-match":
         return "red";
+      case "partial-match":
+        return "orange";
       default:
         return "";
     }
