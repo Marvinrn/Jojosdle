@@ -9,12 +9,12 @@
     width: 35%;
     font-size: 1.2em;
     list-style-type: none;
+    overflow: hidden;
+    overflow-y: scroll;
   }
 
   &__characterContainer {
     border-bottom: 1px solid white;
-    // border-left: 1px solid white;
-    // border-right: 1px solid white;
     padding: 5px;
     background-color: #501e53;
   }

@@ -1,0 +1,42 @@
+.winningModal {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px auto;
+  //   background-color: black;
+  background-color: rgb(96, 184, 96); /* Green background color */
+  border: 2px solid green; /* Default background color */
+  border-radius: 25px;
+
+  &__content {
+    padding-top: 10px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__replayBtn {
+    width: 20%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #004e00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__replayBtn:hover {
+    background-color: #227f2c;
+    box-shadow: 0 0 0 5px #6ec66d;
+    color: #fff;
+  }
+}

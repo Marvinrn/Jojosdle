@@ -9,6 +9,7 @@ import RandomCharacterHint from "./RandomCharacterHint";
 import { CharactersData } from "../datas/charactersData";
 import Image from "next/image";
 import GuessWhoTitle from "../../assets/JojoTitle.png";
+import WinningModal from "./WinningModal";
 
 const CharacterFetch: React.FC = () => {
   const [characters, setCharacters] = useState<CharacterProperties[]>([]);
@@ -23,6 +24,7 @@ const CharacterFetch: React.FC = () => {
   const [randomCharacter, setRandomCharacter] =
     useState<CharacterProperties | null>(null);
   const [searchDisabled, setSearchDisabled] = useState<boolean>(false);
+  const [isWinningModalOpen, setIsWinningModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     try {
@@ -45,6 +47,9 @@ const CharacterFetch: React.FC = () => {
         (c) => c.id === randomCharacter.id
       );
       setSearchDisabled(isMatch);
+      if (isMatch) {
+        setIsWinningModalOpen(true); // Open modal when a match is found
+      }
     }
   }, [randomCharacter, displayedCharacters]);
 
@@ -156,9 +161,9 @@ const CharacterFetch: React.FC = () => {
           height={128}
         />
       </div>
-      {/* {randomCharacter && (
+      {randomCharacter && (
         <RandomCharacterHint randomCharacter={randomCharacter} />
-      )} */}
+      )}
       <CharacterSearchInput
         searchQuery={searchQuery}
         handleSearchChange={handleSearchChange}
@@ -168,6 +173,16 @@ const CharacterFetch: React.FC = () => {
         filteredCharacters={filteredCharacters}
         handleSelectCharacter={handleSelectCharacter}
       />
+      {randomCharacter && (
+        <WinningModal
+          isOpen={isWinningModalOpen}
+          onClose={() => setIsWinningModalOpen(false)}
+          character={{
+            name: randomCharacter.name,
+            image: randomCharacter.image,
+          }}
+        />
+      )}
       <CharacterList
         displayedCharacters={displayedCharacters}
         handleSelectCharacter={handleSelectCharacter}
