@@ -17,6 +17,10 @@ const WinningModal: React.FC<WinningModalProps> = ({
 }) => {
   if (!isOpen || !character) return null;
 
+  const handleReplayClick = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="winningModal">
       <div className="winningModal__content">
@@ -24,11 +28,13 @@ const WinningModal: React.FC<WinningModalProps> = ({
         <Image
           src={character.image}
           alt={character.name}
-          width={100}
-          height={100}
+          width={150}
+          height={150}
         />
       </div>
-      <button className="winningModal__replayBtn">rejouer</button>
+      <button className="winningModal__replayBtn" onClick={handleReplayClick}>
+        rejouer
+      </button>
     </div>
   );
 };

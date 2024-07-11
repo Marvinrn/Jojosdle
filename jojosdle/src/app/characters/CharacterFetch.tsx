@@ -30,9 +30,22 @@ const CharacterFetch: React.FC = () => {
     try {
       const data: CharacterProperties[] = CharactersData;
       setCharacters(data);
-      if (data.length > 0) {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        setRandomCharacter(data[randomIndex]);
+
+      // Load random character from local storage if it exists
+      const storedRandomCharacter = localStorage.getItem("randomCharacter");
+      if (storedRandomCharacter) {
+        setRandomCharacter(JSON.parse(storedRandomCharacter));
+      } else {
+        // If no random character in local storage, select a new random character
+        if (data.length > 0) {
+          const randomIndex = Math.floor(Math.random() * data.length);
+          const selectedRandomCharacter = data[randomIndex];
+          setRandomCharacter(selectedRandomCharacter);
+          localStorage.setItem(
+            "randomCharacter",
+            JSON.stringify(selectedRandomCharacter)
+          );
+        }
       }
     } catch (err: unknown) {
       setError(
@@ -151,7 +164,6 @@ const CharacterFetch: React.FC = () => {
 
   return (
     <div className="characterFetchContainer">
-      {/* <h1 className="characterFetch__title">Guess the Character</h1> */}
       <div className="guessWhoContainer">
         <Image
           className="guessWho__title"

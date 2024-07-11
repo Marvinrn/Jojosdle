@@ -36,10 +36,35 @@ const CharacterList: React.FC<CharacterListProps> = ({
   const [delayedCharacters, setDelayedCharacters] = useState<
     { id: string; property: string }[]
   >([]);
+  const [storedCharacters, setStoredCharacters] = useState<
+    CharacterProperties[]
+  >([]);
 
+  // Load characters from local storage on component mount
+  useEffect(() => {
+    const storedData = localStorage.getItem("displayedCharacters");
+    if (storedData) {
+      setStoredCharacters(JSON.parse(storedData));
+    } else {
+      setStoredCharacters(displayedCharacters);
+    }
+  }, [displayedCharacters]);
+
+  // Save characters to local storage when displayedCharacters changes
   useEffect(() => {
     if (displayedCharacters.length > 0) {
-      displayedCharacters.forEach((char, charIndex) => {
+      localStorage.setItem(
+        "displayedCharacters",
+        JSON.stringify(displayedCharacters)
+      );
+      setStoredCharacters(displayedCharacters);
+    }
+  }, [displayedCharacters]);
+
+  // Add delayed characters to state for animation
+  useEffect(() => {
+    if (storedCharacters.length > 0) {
+      storedCharacters.forEach((char, charIndex) => {
         const properties = [
           "image",
           "gender",
@@ -56,11 +81,11 @@ const CharacterList: React.FC<CharacterListProps> = ({
               ...prev,
               { id: char.id, property },
             ]);
-          }, (charIndex * properties.length + propIndex) * 500); // 0.5 second delay for each property
+          }, (charIndex * properties.length + propIndex) * 350); // 0.5 second delay for each property
         });
       });
     }
-  }, [displayedCharacters]);
+  }, [storedCharacters]);
 
   return (
     <div className="characterList">
@@ -74,9 +99,9 @@ const CharacterList: React.FC<CharacterListProps> = ({
         <p className="characterList__propertiesTitle">Is alive</p>
         <p className="characterList__propertiesTitle">Is Human</p>
       </div>
-      {displayedCharacters.length > 0 && (
+      {storedCharacters.length > 0 && (
         <div className="characterList__listContainer">
-          {displayedCharacters.map((char) => (
+          {storedCharacters.map((char) => (
             <div key={char.id} className="characterList__list">
               <div
                 className={`characterList__properties ${getClassForProperty(
