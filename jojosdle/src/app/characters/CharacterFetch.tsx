@@ -69,15 +69,27 @@ const CharacterFetch: React.FC = () => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
+
     if (query === "") {
       setFilteredCharacters([]);
     } else {
       const filtered = characters.filter((char) =>
         char.name.toLowerCase().includes(query)
       );
-      const filteredWithoutDisplayed = filtered.filter(
-        (char) => !displayedCharacters.find((c) => c.id === char.id)
+
+      // Retrieve displayedCharacters from localStorage
+      const storedDisplayedCharacters = JSON.parse(
+        localStorage.getItem("displayedCharacters") || "[]"
       );
+
+      // Exclude characters that are already in displayedCharacters from the filtered list
+      const filteredWithoutDisplayed = filtered.filter(
+        (char) =>
+          !storedDisplayedCharacters.some(
+            (storedChar: CharacterProperties) => storedChar.id === char.id
+          )
+      );
+
       setFilteredCharacters(filteredWithoutDisplayed);
     }
   };
