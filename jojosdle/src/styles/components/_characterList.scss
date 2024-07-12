@@ -28,6 +28,8 @@
   }
 
   .characterList__listContainer {
+    display: flex;
+    flex-direction: column-reverse;
     // max-height: 550px;
     overflow-y: auto;
   }

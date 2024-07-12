@@ -45,47 +45,58 @@ const CharacterList: React.FC<CharacterListProps> = ({
     const storedData = localStorage.getItem("displayedCharacters");
     if (storedData) {
       setStoredCharacters(JSON.parse(storedData));
-    } else {
-      setStoredCharacters(displayedCharacters);
     }
-  }, [displayedCharacters]);
+  }, []);
 
-  // Save characters to local storage when displayedCharacters changes
+  // Update local storage and state with new characters
   useEffect(() => {
+    const storedData = localStorage.getItem("displayedCharacters");
+    const existingCharacters = storedData ? JSON.parse(storedData) : [];
+
+    const updatedCharacters = [
+      ...existingCharacters,
+      ...displayedCharacters.filter(
+        (char) =>
+          !existingCharacters.some(
+            (existingChar: { id: string }) => existingChar.id === char.id
+          )
+      ),
+    ];
+
     if (displayedCharacters.length > 0) {
       localStorage.setItem(
         "displayedCharacters",
-        JSON.stringify(displayedCharacters)
+        JSON.stringify(updatedCharacters)
       );
-      setStoredCharacters(displayedCharacters);
+      setStoredCharacters(updatedCharacters);
     }
   }, [displayedCharacters]);
 
-  // Add delayed characters to state for animation
+  // Add delayed characters to state for animation only if they are new
   useEffect(() => {
-    if (storedCharacters.length > 0) {
-      storedCharacters.forEach((char, charIndex) => {
-        const properties = [
-          "image",
-          "gender",
-          "nationality",
-          "animeDebut",
-          "chapter",
-          "isStandUser",
-          "living",
-          "isHuman",
-        ];
-        properties.forEach((property, propIndex) => {
-          setTimeout(() => {
-            setDelayedCharacters((prev) => [
-              ...prev,
-              { id: char.id, property },
-            ]);
-          }, (charIndex * properties.length + propIndex) * 350); // 0.5 second delay for each property
-        });
+    const newCharacters = displayedCharacters.filter(
+      (char) =>
+        !storedCharacters.some((storedChar) => storedChar.id === char.id)
+    );
+
+    newCharacters.forEach((char, charIndex) => {
+      const properties = [
+        "image",
+        "gender",
+        "nationality",
+        "animeDebut",
+        "chapter",
+        "isStandUser",
+        "living",
+        "isHuman",
+      ];
+      properties.forEach((property, propIndex) => {
+        setTimeout(() => {
+          setDelayedCharacters((prev) => [...prev, { id: char.id, property }]);
+        }, (charIndex * properties.length + propIndex) * 350); // 0.35 second delay for each property
       });
-    }
-  }, [storedCharacters]);
+    });
+  }, [displayedCharacters, storedCharacters]);
 
   return (
     <div className="characterList">
@@ -103,126 +114,65 @@ const CharacterList: React.FC<CharacterListProps> = ({
         <div className="characterList__listContainer">
           {storedCharacters.map((char) => (
             <div key={char.id} className="characterList__list">
-              <div
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "image"
-                )} ${
-                  delayedCharacters.find(
-                    (item) => item.id === char.id && item.property === "image"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                <Image
-                  src={char.image}
-                  alt={char.name}
-                  width={75}
-                  height={75}
-                />
-              </div>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "gender"
-                )} ${
-                  delayedCharacters.find(
-                    (item) => item.id === char.id && item.property === "gender"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                {char.gender}
-              </p>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "nationality"
-                )} ${
-                  delayedCharacters.find(
-                    (item) =>
-                      item.id === char.id && item.property === "nationality"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                {char.nationality}
-              </p>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "animeDebut"
-                )} ${
-                  delayedCharacters.find(
-                    (item) =>
-                      item.id === char.id && item.property === "animeDebut"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                Episode {char.animeDebut}
-              </p>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "chapter"
-                )} ${
-                  delayedCharacters.find(
-                    (item) => item.id === char.id && item.property === "chapter"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                {char.chapter}
-              </p>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "isStandUser"
-                )} ${
-                  delayedCharacters.find(
-                    (item) =>
-                      item.id === char.id && item.property === "isStandUser"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                {char.isStandUser ? "Yes" : "No"}
-              </p>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "living"
-                )} ${
-                  delayedCharacters.find(
-                    (item) => item.id === char.id && item.property === "living"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                {char.living ? "Yes" : "No"}
-              </p>
-              <p
-                className={`characterList__properties ${getClassForProperty(
-                  char,
-                  "isHuman"
-                )} ${
-                  delayedCharacters.find(
-                    (item) => item.id === char.id && item.property === "isHuman"
-                  )
-                    ? "visible"
-                    : "hidden"
-                }`}
-              >
-                {char.isHuman ? "Yes" : "No"}
-              </p>
+              {[
+                "image",
+                "gender",
+                "nationality",
+                "animeDebut",
+                "chapter",
+                "isStandUser",
+                "living",
+                "isHuman",
+              ].map((property) => (
+                <div
+                  key={property}
+                  className={`characterList__properties ${getClassForProperty(
+                    char,
+                    property
+                  )} ${
+                    delayedCharacters.find(
+                      (item) =>
+                        item.id === char.id && item.property === property
+                    ) ||
+                    !displayedCharacters.some(
+                      (displayedChar) => displayedChar.id === char.id
+                    )
+                      ? "visible"
+                      : "hidden"
+                  }`}
+                >
+                  {property === "image" ? (
+                    <Image
+                      src={char.image}
+                      alt={char.name}
+                      width={75}
+                      height={75}
+                    />
+                  ) : property === "animeDebut" ? (
+                    `Episode ${char.animeDebut}`
+                  ) : property === "isStandUser" ? (
+                    char.isStandUser ? (
+                      "Yes"
+                    ) : (
+                      "No"
+                    )
+                  ) : property === "living" ? (
+                    char.living ? (
+                      "Yes"
+                    ) : (
+                      "No"
+                    )
+                  ) : property === "isHuman" ? (
+                    char.isHuman ? (
+                      "Yes"
+                    ) : (
+                      "No"
+                    )
+                  ) : (
+                    char[property]
+                  )}
+                </div>
+              ))}
             </div>
           ))}
         </div>
