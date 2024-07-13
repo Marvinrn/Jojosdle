@@ -18,6 +18,7 @@ const WinningModal: React.FC<WinningModalProps> = ({
   if (!isOpen || !character) return null;
 
   const handleReplayClick = () => {
+    localStorage.clear();
     window.location.reload();
   };
 

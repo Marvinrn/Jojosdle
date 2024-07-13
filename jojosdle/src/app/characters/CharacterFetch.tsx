@@ -47,6 +47,18 @@ const CharacterFetch: React.FC = () => {
           );
         }
       }
+
+      // Retrieve modal and search bar states from localStorage
+      const storedModalState = localStorage.getItem("isWinningModalOpen");
+      const storedSearchState = localStorage.getItem("searchDisabled");
+
+      if (storedModalState !== null) {
+        setIsWinningModalOpen(JSON.parse(storedModalState));
+      }
+
+      if (storedSearchState !== null) {
+        setSearchDisabled(JSON.parse(storedSearchState));
+      }
     } catch (err: unknown) {
       setError(
         err instanceof Error ? err.message : "An unknown error occurred"
@@ -60,11 +72,19 @@ const CharacterFetch: React.FC = () => {
         (c) => c.id === randomCharacter.id
       );
       setSearchDisabled(isMatch);
+      localStorage.setItem("searchDisabled", JSON.stringify(isMatch));
+
       if (isMatch) {
         setIsWinningModalOpen(true); // Open modal when a match is found
+        localStorage.setItem("isWinningModalOpen", JSON.stringify(true));
       }
     }
   }, [randomCharacter, displayedCharacters]);
+
+  const handleModalClose = () => {
+    setIsWinningModalOpen(false);
+    localStorage.setItem("isWinningModalOpen", JSON.stringify(false));
+  };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
@@ -185,14 +205,16 @@ const CharacterFetch: React.FC = () => {
           height={128}
         />
       </div>
-      {randomCharacter && (
+      {/* {randomCharacter && (
         <RandomCharacterHint randomCharacter={randomCharacter} />
+      )} */}
+      {!isWinningModalOpen && (
+        <CharacterSearchInput
+          searchQuery={searchQuery}
+          handleSearchChange={handleSearchChange}
+          searchDisabled={searchDisabled}
+        />
       )}
-      <CharacterSearchInput
-        searchQuery={searchQuery}
-        handleSearchChange={handleSearchChange}
-        searchDisabled={searchDisabled}
-      />
       <FilteredCharacterList
         filteredCharacters={filteredCharacters}
         handleSelectCharacter={handleSelectCharacter}
@@ -200,7 +222,7 @@ const CharacterFetch: React.FC = () => {
       {randomCharacter && (
         <WinningModal
           isOpen={isWinningModalOpen}
-          onClose={() => setIsWinningModalOpen(false)}
+          onClose={handleModalClose}
           character={{
             name: randomCharacter.name,
             image: randomCharacter.image,
