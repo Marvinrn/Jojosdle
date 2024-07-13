@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface WinningModalProps {
@@ -15,12 +15,23 @@ const WinningModal: React.FC<WinningModalProps> = ({
   onClose,
   character,
 }) => {
-  if (!isOpen || !character) return null;
+  const [attemptCount, setAttemptCount] = useState<number>(0);
+
+  useEffect(() => {
+    if (isOpen && localStorage.getItem("displayedCharacters")) {
+      const displayedCharacters = JSON.parse(
+        localStorage.getItem("displayedCharacters")!
+      );
+      setAttemptCount(displayedCharacters.length);
+    }
+  }, [isOpen]);
 
   const handleReplayClick = () => {
     localStorage.clear();
     window.location.reload();
   };
+
+  if (!isOpen || !character) return null;
 
   return (
     <div className="winningModal">
@@ -32,6 +43,7 @@ const WinningModal: React.FC<WinningModalProps> = ({
           width={150}
           height={150}
         />
+        <p>Number of attempts: {attemptCount}</p>
       </div>
       <button className="winningModal__replayBtn" onClick={handleReplayClick}>
         rejouer
