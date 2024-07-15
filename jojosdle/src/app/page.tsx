@@ -1,13 +1,10 @@
-import Link from "next/link";
+import React from "react";
+import CharacterFetch from "./characters/CharacterFetch";
 
 export default function Home() {
   return (
-    <main>
-      <div>
-        <Link href="/characters">
-          <button>Go to Characters Page</button>
-        </Link>
-      </div>
-    </main>
+    <div className="charactersPage">
+      <CharacterFetch />
+    </div>
   );
 }
