@@ -27,7 +27,7 @@
     height: 50px;
   }
 
-  .characterList__listContainer {
+  &__listContainer {
     display: flex;
     flex-direction: column-reverse;
     // max-height: 550px;
@@ -37,7 +37,7 @@
   &__list {
     margin: 5px 0px;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
   }
 
   &__properties {
@@ -91,6 +91,29 @@
       background-image: url("../../assets/ArrowDown.png");
       background-size: contain;
       background-repeat: no-repeat;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .characterList {
+    &__titleList {
+      width: 900px;
+      overflow-x: auto; /* enables horizontal scrolling */
+      white-space: nowrap; /* prevents the list items from wrapping to the next line */
+    }
+
+    &__propertiesTitle {
+      width: 100px;
+    }
+
+    &__listContainer {
+      overflow-x: auto; /* enables horizontal scrolling */
+      white-space: nowrap; /* prevents the list items from wrapping to the next line */
+    }
+
+    &__list {
+      display: inline-flex; /* ensures the list items are displayed in a single line */
     }
   }
 }

@@ -1,5 +1,5 @@
 .characterFetchContainer {
-  width: 50%;
+  width: 100%;
   min-height: 100vh;
   margin: auto;
   // background-color: rgba(70, 38, 70, 0.959);
@@ -23,5 +23,11 @@
       width: 100%;
       height: 100%;
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .characterFetchContainer {
+    overflow-x: auto;
   }
 }
