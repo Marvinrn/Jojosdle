@@ -5,16 +5,16 @@
   align-items: center;
   justify-content: center;
   width: 100%; // ensure it takes full width of the container
-  overflow-x: auto; // enables horizontal scrolling if content overflows
+  // overflow-x: auto; // enables horizontal scrolling if content overflows
 
   &__titleList {
     padding-top: 25px;
     display: flex;
-    // justify-content: center;
-    // text-align: center;
-    // align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     width: 100%; // ensure it takes full width of the container
-    white-space: nowrap; // prevents the list items from wrapping to the next line
+    // white-space: nowrap; // prevents the list items from wrapping to the next line
     flex-shrink: 0; // prevent resizing
   }
 
@@ -35,14 +35,16 @@
   &__listContainer {
     display: flex;
     flex-direction: column-reverse;
-    width: 100%;
-    overflow-y: auto;
+    text-align: center;
+    align-items: center;
+    // width: 100%;
   }
 
   &__list {
     margin: 5px 0px;
     display: flex;
-    // flex-wrap: wrap;
+    width: 100%;
+    flex-wrap: nowrap;
   }
 
   &__properties {
@@ -97,6 +99,21 @@
       background-image: url("../../assets/ArrowDown.png");
       background-size: contain;
       background-repeat: no-repeat;
+    }
+  }
+}
+
+@media (max-width: 880px) {
+  .characterList {
+    &__titleList {
+      display: flex;
+      justify-content: initial;
+      text-align: initial;
+      align-items: normal;
+    }
+
+    &__listContainer {
+      width: 100%;
     }
   }
 }
