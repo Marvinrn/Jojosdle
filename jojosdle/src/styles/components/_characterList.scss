@@ -4,14 +4,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%; // ensure it takes full width of the container
+  overflow-x: auto; // enables horizontal scrolling if content overflows
 
   &__titleList {
     padding-top: 25px;
     display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 100%;
+    // justify-content: center;
+    // text-align: center;
+    // align-items: center;
+    width: 100%; // ensure it takes full width of the container
+    white-space: nowrap; // prevents the list items from wrapping to the next line
+    flex-shrink: 0; // prevent resizing
   }
 
   &__propertiesTitle {
@@ -25,12 +29,13 @@
     padding: 10px 0px;
     width: 100px;
     height: 50px;
+    flex-shrink: 0; // prevent resizing
   }
 
   &__listContainer {
     display: flex;
     flex-direction: column-reverse;
-    // max-height: 550px;
+    width: 100%;
     overflow-y: auto;
   }
 
@@ -55,6 +60,7 @@
     border: 2px solid red; /* Default background color */
     transition: opacity 0.5s ease-in-out;
     opacity: 0; /* Initially hidden */
+    flex-shrink: 0; // prevent resizing
 
     &.green {
       background-color: rgb(96, 184, 96); /* Green background color */
@@ -91,29 +97,6 @@
       background-image: url("../../assets/ArrowDown.png");
       background-size: contain;
       background-repeat: no-repeat;
-    }
-  }
-}
-
-@media (max-width: 900px) {
-  .characterList {
-    &__titleList {
-      width: 900px;
-      overflow-x: auto; /* enables horizontal scrolling */
-      white-space: nowrap; /* prevents the list items from wrapping to the next line */
-    }
-
-    &__propertiesTitle {
-      width: 100px;
-    }
-
-    &__listContainer {
-      overflow-x: auto; /* enables horizontal scrolling */
-      white-space: nowrap; /* prevents the list items from wrapping to the next line */
-    }
-
-    &__list {
-      display: inline-flex; /* ensures the list items are displayed in a single line */
     }
   }
 }
