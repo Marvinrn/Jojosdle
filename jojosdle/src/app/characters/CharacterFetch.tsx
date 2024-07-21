@@ -154,7 +154,7 @@ const CharacterFetch: React.FC = () => {
       ];
 
       propertiesToCompare.forEach((prop) => {
-        if (prop === "animeDebut") {
+        if (prop == "animeDebut") {
           const charValue = char[prop] as number;
           const randomCharValue = randomCharacter[prop] as number;
 
@@ -165,11 +165,11 @@ const CharacterFetch: React.FC = () => {
           } else {
             results[prop] = "lesser";
           }
-        } else if (prop === "nationality") {
+        } else if (prop == "nationality") {
           const charNationality = char[prop] as string;
           const randomCharNationality = randomCharacter[prop] as string;
 
-          if (charNationality === randomCharNationality) {
+          if (charNationality == randomCharNationality) {
             results[prop] = "match";
           } else if (
             randomCharNationality.includes(charNationality) ||
