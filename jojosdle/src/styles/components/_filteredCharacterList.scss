@@ -24,3 +24,13 @@
     align-items: center;
   }
 }
+
+@media (max-width: 880px) {
+  .filteredList {
+    width: 100%;
+
+    &__list {
+      width: 80%;
+    }
+  }
+}

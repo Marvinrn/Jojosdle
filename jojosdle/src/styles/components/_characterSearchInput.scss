@@ -56,3 +56,19 @@
     }
   }
 }
+
+@media (max-width: 880px) {
+  .searchBarContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchBarContainer {
+    width: 100%;
+
+    .wrapper {
+      width: 80%;
+    }
+  }
+}
