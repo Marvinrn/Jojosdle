@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import RulesModal from "./RulesModal";
 
 interface CharacterSearchInputProps {
   searchQuery: string;
@@ -11,6 +12,16 @@ const CharacterSearchInput: React.FC<CharacterSearchInputProps> = ({
   handleSearchChange,
   searchDisabled,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleInfoClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="searchBarContainer">
       <div className="wrapper">
@@ -24,6 +35,10 @@ const CharacterSearchInput: React.FC<CharacterSearchInputProps> = ({
         />
         <label htmlFor="search">Search character...</label>
       </div>
+      <button className="infoBtn" onClick={handleInfoClick}>
+        i<span className="hoverText">show rules</span>
+      </button>
+      {isModalOpen && <RulesModal onClose={handleCloseModal} />}
     </div>
   );
 };

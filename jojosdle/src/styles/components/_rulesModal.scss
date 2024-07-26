@@ -1,0 +1,98 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .modalContent {
+    background-color: #fefefe;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    border-radius: 8px; /* Optional: for rounded corners */
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .rulesTitle {
+      margin-bottom: 15px; /* Space below the heading */
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .rulesIntro {
+      margin-bottom: 15px; /* Space below the introduction paragraph */
+    }
+
+    .rulesHowToPlay {
+      margin-bottom: 15px; /* Space below the "How to Play" paragraph */
+    }
+
+    .rulesList {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      .rulesListItem {
+        margin-bottom: 10px; /* Space below each list item */
+      }
+
+      .propertyList {
+        margin-top: 5px; /* Space above nested lists */
+        margin-bottom: 15px; /* Space below nested lists */
+        padding-left: 20px; /* Space from the left for nested lists */
+        list-style-type: none;
+
+        .propertyListItem {
+          margin-bottom: 10px; /* Space below each property list item */
+        }
+      }
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 5px; /* Space to the right of the span */
+      padding: 2px 5px;
+      border-radius: 4px; /* Optional: for rounded edges on color indicators */
+      color: white;
+    }
+
+    .red {
+      background-color: rgb(219, 38, 38);
+      border: 2px solid red; /* Default background color */
+    }
+
+    .orange {
+      background-color: rgb(231, 109, 28); /* Green background color */
+      border: 2px solid rgb(223, 79, 13); /* Default background color */
+    }
+
+    .green {
+      background-color: rgb(96, 184, 96); /* Green background color */
+      border: 2px solid green; /* Default background color */
+    }
+  }
+}

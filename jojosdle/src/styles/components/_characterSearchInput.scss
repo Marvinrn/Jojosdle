@@ -1,6 +1,6 @@
 .searchBarContainer {
   display: flex;
-  flex-flow: column;
+  // flex-flow: column;
   row-gap: 16px;
   justify-content: center;
   align-items: center;
@@ -55,20 +55,64 @@
       border: 3px solid rgb(39, 5, 63);
     }
   }
-}
 
-@media (max-width: 880px) {
-  .searchBarContainer {
-    width: 100%;
+  .infoBtn {
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+    font-family: "IBM Plex Mono", monospace;
+    position: relative;
+    right: 4%;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 5px;
+    color: white;
+    background-color: #893f8e;
+    border: 1px solid #501e53;
+    cursor: pointer;
+
+    .hoverText {
+      display: none;
+      position: absolute;
+      top: 30px; /* Adjust as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #501e53;
+      color: white;
+      padding: 5px;
+      border-radius: 3px;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    &:hover .hoverText {
+      display: block;
+    }
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 880px) {
   .searchBarContainer {
     width: 100%;
 
     .wrapper {
       width: 80%;
     }
+
+    .infoBtn {
+      right: 10.5%;
+    }
   }
 }
+
+// @media (max-width: 600px) {
+//   .searchBarContainer {
+//     width: 100%;
+
+//     .wrapper {
+//       width: 80%;
+//     }
+//   }
+// }
