@@ -36,7 +36,7 @@ const CharacterSearchInput: React.FC<CharacterSearchInputProps> = ({
         <label htmlFor="search">Search character...</label>
       </div>
       <button className="infoBtn" onClick={handleInfoClick}>
-        i<span className="hoverText">show rules</span>
+        i<span className="hoverText">Show rules</span>
       </button>
       {isModalOpen && <RulesModal onClose={handleCloseModal} />}
     </div>

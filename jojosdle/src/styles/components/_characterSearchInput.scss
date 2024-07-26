@@ -59,8 +59,8 @@
   .infoBtn {
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
     font-family: "IBM Plex Mono", monospace;
-    position: relative;
-    right: 4%;
+    position: absolute;
+    right: 34%;
     border-radius: 50%;
     width: 25px;
     height: 25px;
@@ -69,8 +69,8 @@
     font-weight: bold;
     margin-left: 5px;
     color: white;
-    background-color: #893f8e;
-    border: 1px solid #501e53;
+    background-color: #ef569d;
+    border: 1px solid #f176ac;
     cursor: pointer;
 
     .hoverText {
@@ -79,9 +79,10 @@
       top: 30px; /* Adjust as needed */
       left: 50%;
       transform: translateX(-50%);
-      background-color: #501e53;
+      background-color: #ef569d;
       color: white;
       padding: 5px;
+      border: 2px solid #f176ac;
       border-radius: 3px;
       white-space: nowrap;
       z-index: 1;
@@ -102,7 +103,7 @@
     }
 
     .infoBtn {
-      right: 10.5%;
+      right: 12%;
     }
   }
 }
