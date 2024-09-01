@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import CharacterList from "./CharactersList";
+import CharacterList from "./CharacterList";
 import { CharacterProperties } from "./CharacterProperties";
 import CharacterSearchInput from "./CharacterSearchInput";
 import FilteredCharacterList from "./FilteredCharacterList";
