@@ -6,7 +6,7 @@ import { CharacterProperties } from "./CharacterProperties";
 import CharacterSearchInput from "./CharacterSearchInput";
 import FilteredCharacterList from "./FilteredCharacterList";
 import RandomCharacterHint from "./RandomCharacterHint";
-import { CharactersData } from "../datas/CharactersData";
+import { CharacterData } from "../datas/CharacterData";
 import Image from "next/image";
 import GuessWhoTitle from "../../assets/JojoTitle.png";
 import WinningModal from "./WinningModal";
@@ -28,7 +28,7 @@ const CharacterFetch: React.FC = () => {
 
   useEffect(() => {
     try {
-      const data: CharacterProperties[] = CharactersData;
+      const data: CharacterProperties[] = CharacterData;
       setCharacters(data);
 
       // Load random character from local storage if it exists
