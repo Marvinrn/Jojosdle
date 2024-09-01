@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { CharacterProperties } from "./CharacterProperties";
+import { CharactersProperties } from "./CharactersProperties";
 
 interface CharacterListProps {
-  displayedCharacters: CharacterProperties[];
-  handleSelectCharacter: (char: CharacterProperties) => void;
+  displayedCharacters: CharactersProperties[];
+  handleSelectCharacter: (char: CharactersProperties) => void;
 }
 
 const CharacterList: React.FC<CharacterListProps> = ({
@@ -12,7 +12,7 @@ const CharacterList: React.FC<CharacterListProps> = ({
   handleSelectCharacter,
 }) => {
   const getClassForProperty = (
-    char: CharacterProperties,
+    char: CharactersProperties,
     property: string
   ): string => {
     const comparisonResults = char.comparisonResults || {};
@@ -37,7 +37,7 @@ const CharacterList: React.FC<CharacterListProps> = ({
     { id: string; property: string }[]
   >([]);
   const [storedCharacters, setStoredCharacters] = useState<
-    CharacterProperties[]
+    CharactersProperties[]
   >([]);
 
   // Load characters from local storage on component mount

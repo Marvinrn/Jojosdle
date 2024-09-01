@@ -1,4 +1,4 @@
-export interface CharacterProperties {
+export interface CharactersProperties {
   id: string;
   name: string;
   image: string;

@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { CharacterProperties } from "./CharacterProperties";
+import { CharactersProperties } from "./CharactersProperties";
 
 interface FilteredCharacterListProps {
-  filteredCharacters: CharacterProperties[];
-  handleSelectCharacter: (char: CharacterProperties) => void;
+  filteredCharacters: CharactersProperties[];
+  handleSelectCharacter: (char: CharactersProperties) => void;
 }
 
 const FilteredCharacterList: React.FC<FilteredCharacterListProps> = ({

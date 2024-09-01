@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import CharacterList from "./CharacterList";
-import { CharacterProperties } from "./CharacterProperties";
+import { CharactersProperties } from "./CharactersProperties";
 import CharacterSearchInput from "./CharacterSearchInput";
 import FilteredCharacterList from "./FilteredCharacterList";
 import RandomCharacterHint from "./RandomCharacterHint";
@@ -12,23 +12,23 @@ import GuessWhoTitle from "../../assets/JojoTitle.png";
 import WinningModal from "./WinningModal";
 
 const CharacterFetch: React.FC = () => {
-  const [characters, setCharacters] = useState<CharacterProperties[]>([]);
+  const [characters, setCharacters] = useState<CharactersProperties[]>([]);
   const [displayedCharacters, setDisplayedCharacters] = useState<
-    CharacterProperties[]
+    CharactersProperties[]
   >([]);
   const [filteredCharacters, setFilteredCharacters] = useState<
-    CharacterProperties[]
+    CharactersProperties[]
   >([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [randomCharacter, setRandomCharacter] =
-    useState<CharacterProperties | null>(null);
+    useState<CharactersProperties | null>(null);
   const [searchDisabled, setSearchDisabled] = useState<boolean>(false);
   const [isWinningModalOpen, setIsWinningModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     try {
-      const data: CharacterProperties[] = CharacterData;
+      const data: CharactersProperties[] = CharacterData;
       setCharacters(data);
 
       // Load random character from local storage if it exists
@@ -106,7 +106,7 @@ const CharacterFetch: React.FC = () => {
       const filteredWithoutDisplayed = filtered.filter(
         (char) =>
           !storedDisplayedCharacters.some(
-            (storedChar: CharacterProperties) => storedChar.id === char.id
+            (storedChar: CharactersProperties) => storedChar.id === char.id
           )
       );
 
@@ -114,7 +114,7 @@ const CharacterFetch: React.FC = () => {
     }
   };
 
-  const handleSelectCharacter = (char: CharacterProperties) => {
+  const handleSelectCharacter = (char: CharactersProperties) => {
     setFilteredCharacters([]);
     setSearchQuery("");
     setSearchDisabled(false);
@@ -129,7 +129,7 @@ const CharacterFetch: React.FC = () => {
     });
   };
 
-  const compareWithRandomCharacter = (char: CharacterProperties) => {
+  const compareWithRandomCharacter = (char: CharactersProperties) => {
     if (randomCharacter) {
       const results: {
         [key: string]:
