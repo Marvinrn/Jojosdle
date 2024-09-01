@@ -6,7 +6,7 @@ import { CharacterProperties } from "./CharacterProperties";
 import CharacterSearchInput from "./CharacterSearchInput";
 import FilteredCharacterList from "./FilteredCharacterList";
 import RandomCharacterHint from "./RandomCharacterHint";
-import { CharactersData } from "../datas/charactersData";
+import { CharactersData } from "../datas/CharactersData";
 import Image from "next/image";
 import GuessWhoTitle from "../../assets/JojoTitle.png";
 import WinningModal from "./WinningModal";
