@@ -1,8 +1,8 @@
 import React from "react";
-import { CharacterProperties } from "./CharacterProperties";
+import { CharactersProperties } from "./CharactersProperties";
 
 interface RandomCharacterHintProps {
-  randomCharacter: CharacterProperties;
+  randomCharacter: CharactersProperties;
 }
 
 const RandomCharacterHint: React.FC<RandomCharacterHintProps> = ({
