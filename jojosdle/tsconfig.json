@@ -24,6 +24,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
+    "src/**/*.tsx",
     "**/CharacterFetch.tsx",
     ".next/types/**/*.ts"
   ],
